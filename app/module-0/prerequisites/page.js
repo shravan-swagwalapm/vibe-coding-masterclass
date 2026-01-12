@@ -114,7 +114,7 @@ export default function Prerequisites() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 rounded-xl p-6">
+        <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 rounded-xl p-6 mt-8">
           <h3 className="text-orange-400 font-semibold mb-3">💡 The Vibe Coding Promise</h3>
           <p className="text-white/80">
             By the end of this course, you will have deployed a real, working web application with a real URL that you can share with anyone. No tricks, no "it only works on my machine" — a genuine shipped product.

@@ -291,9 +291,12 @@ export default function CourseLayout({ children }) {
           <article className="w-full max-w-none">
             {children}
           </article>
+        </div>
 
+        {/* Combined Footer with Navigation */}
+        <footer className="border-t border-white/5 mt-8">
           {/* Prev/Next Navigation */}
-          <div className="mt-16 pt-8 border-t border-white/5 flex items-center justify-between">
+          <div className="px-6 sm:px-8 lg:px-12 xl:px-16 py-8 flex items-center justify-between">
             {prevLesson ? (
               <Link 
                 href={prevLesson.href}
@@ -320,25 +323,25 @@ export default function CourseLayout({ children }) {
               </Link>
             ) : <div />}
           </div>
-        </div>
 
-        {/* Footer */}
-        <footer className="border-t border-white/5 py-8 px-6 sm:px-8 lg:px-12 xl:px-16 mt-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <Logo />
-            <div className="flex items-center gap-4">
-              {socials.map((social, i) => (
-                <a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-gray-500 hover:text-white transition"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-4 h-4" />
-                </a>
-              ))}
+          {/* Footer Branding */}
+          <div className="border-t border-white/5 px-6 sm:px-8 lg:px-12 xl:px-16 py-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <Logo />
+              <div className="flex items-center gap-4">
+                {socials.map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-gray-500 hover:text-white transition"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </footer>
