@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Code2, Rocket, Sparkles, Clock, BookOpen, ChevronDown, Star, ExternalLink } from 'lucide-react'
+import { ArrowRight, Code2, Rocket, Sparkles, Clock, BookOpen, ChevronDown, ExternalLink, Linkedin } from 'lucide-react'
 
 export default function Home() {
   const modules = [
@@ -39,28 +39,46 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: "I cracked a PM role in TATA 1mg. There were 3000 applicants and across 5 rounds I got lucky. Extremely grateful!",
-      name: "Rethink Alumni",
-      role: "PM at TATA 1mg",
+      quote: "The session was incredibly insightful! The breakdown of PRD structures (BRD, FRD, DRD) and the emphasis on versioning really helped understand how to better manage scope. The growth model discussion was very helpful - especially how PLG drives viable product virality. Thank you bhaiya for the session.",
+      name: "Bhavna Chaudhary",
+      role: "PM @ HCLTech",
+      tag: "Lovely Comments",
       linkedin: null
     },
     {
-      quote: "Got the AI PM role at IBM — thanks to your sessions. The Productathon helped me build confidently. Showcased that AI product in interviews.",
-      name: "Rethink Alumni", 
-      role: "AI PM at IBM",
-      linkedin: null
+      quote: "I absolutely loved today's session ❤️! It was a delight listening to Puneet and understanding his thought process. Key insights I'm taking away: maintain a learning mindset and value soft skills as much as technical skills. Feeling motivated to keep growing on my journey!",
+      name: "Aditya Zade",
+      role: "SDE @ NICE",
+      tag: "Lovely Comments",
+      linkedin: "https://www.linkedin.com/in/adityazade/"
     },
     {
-      quote: "I got selected in ServiceNow for the role of Senior Product Manager. This is a dream job for me!",
-      name: "Rethink Alumni",
-      role: "Senior PM at ServiceNow",
-      linkedin: null
+      quote: "Hey Shravan, I got the AI PM role at IBM — thanks to your sessions. The Productathon helped me build confidently. Showcased that AI product in interviews. Also cleared another role but passed. Got two more PM interview calls just from the content I shared. Your program gave way more value. ❤️",
+      name: "Kevin Thomas",
+      role: "Sr. AI PM @ IBM",
+      tag: "Jobs Cracked",
+      linkedin: "https://www.linkedin.com/in/kev-thomas/"
     },
     {
-      quote: "Got offer as Senior Product Manager at Mahindra & Mahindra for their EV division. Thank you for all the support!",
-      name: "Rethink Alumni",
-      role: "Senior PM at Mahindra EV",
-      linkedin: null
+      quote: "The LLM session was very interesting. It was great to learn how LLMs work, especially concepts like precision, recall, and accuracy. I had been reading about these for some time but still had doubts, and today's session clarified most of them. The CPU, GPU, and TPU concepts were very insightful.",
+      name: "Anupam Rajlani",
+      role: "Consultant @ Genpact",
+      tag: "Lovely Comments",
+      linkedin: "https://www.linkedin.com/in/anupam-rajlani-35916517/"
+    },
+    {
+      quote: "Hello bhaiya, very excited to share with you I got very nice hike in appraisal in the last review, along with additional ESOPS 🚀 Thank you so much for all the sessions 🙏",
+      name: "Saif Sadiq",
+      role: "Director Product @ Apptile",
+      tag: "Jobs Cracked",
+      linkedin: "https://www.linkedin.com/in/saif-sadiq/"
+    },
+    {
+      quote: "Really cool to see how agents are made and how we can get them to work. I'm excited to explore more use cases and see which tasks I can outsource to an agent. Loved the session.",
+      name: "Swar Joshi",
+      role: "PM @ Toogethr",
+      tag: "Lovely Comments",
+      linkedin: "https://www.linkedin.com/in/swarjoshi/"
     }
   ]
 
@@ -92,20 +110,20 @@ export default function Home() {
   ]
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#050d1a]">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-xl border-b border-blue-900/30">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050d1a]/80 backdrop-blur-xl border-b border-blue-500/10">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="font-display font-bold text-xl text-white">
             Vibe Coding
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="#modules" className="text-blue-200/70 hover:text-white transition text-sm">Modules</Link>
-            <Link href="#testimonials" className="text-blue-200/70 hover:text-white transition text-sm">Reviews</Link>
-            <Link href="#faq" className="text-blue-200/70 hover:text-white transition text-sm">FAQ</Link>
+            <Link href="#modules" className="text-blue-200/60 hover:text-white transition text-sm">Modules</Link>
+            <Link href="#testimonials" className="text-blue-200/60 hover:text-white transition text-sm">Reviews</Link>
+            <Link href="#faq" className="text-blue-200/60 hover:text-white transition text-sm">FAQ</Link>
             <Link 
               href="/module-0/prerequisites"
-              className="bg-saffron-500 hover:bg-saffron-600 text-white px-4 py-2 rounded-full text-sm font-medium transition"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition shadow-lg shadow-blue-500/20"
             >
               Start Learning
             </Link>
@@ -113,113 +131,130 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Blue Gradient Background */}
-      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-[#0a1628] via-[#0f2847] to-[#1a3a5c] overflow-hidden">
-        {/* Dot pattern overlay */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '24px 24px'
+      {/* Hero Section - Modern Blue Gradient with Dot Pattern */}
+      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0d2847] to-[#1a4a7a]" />
+        
+        {/* Dot Pattern */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
         }} />
         
-        {/* Glow effects */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
+        {/* Glow Effects */}
+        <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-blue-400/10 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[150px]" />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-2 mb-8">
-            <Sparkles className="w-4 h-4 text-saffron-400" />
-            <span className="text-white/90 text-sm font-medium">Free Course • No Coding Required</span>
-          </div>
-          
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Learn Vibe Coding<br />
-            <span className="text-saffron-400">Ship Apps Without Code</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-blue-100/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Master Claude Code in a weekend. Go from zero to deploying real applications — no programming experience needed. Built for Product Managers by a PM.
-          </p>
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur border border-white/10 rounded-full px-4 py-2 mb-8">
+                <span className="text-blue-300/90 text-sm">Free Course • No Coding Required</span>
+              </div>
+              
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1]">
+                <span className="text-white/90">Learn</span> <span className="text-white">Vibe Coding</span><br />
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Ship Apps Without Code</span>
+              </h1>
+              
+              <p className="text-lg text-blue-100/60 mb-10 max-w-xl leading-relaxed">
+                Master Claude Code in a weekend. Go from zero to deploying real applications — no programming experience needed. Built for Product Managers by a PM.
+              </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Link 
-              href="/module-0/prerequisites"
-              className="w-full sm:w-auto bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition flex items-center justify-center gap-2 shadow-lg shadow-saffron-500/25"
-            >
-              Start Free Course <ArrowRight className="w-5 h-5" />
-            </Link>
-            <a 
-              href="https://youtube.com/@theswagwalapm"
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="w-full sm:w-auto bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition"
-            >
-              Watch on YouTube
-            </a>
-          </div>
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
+                <Link 
+                  href="/module-0/prerequisites"
+                  className="w-full sm:w-auto bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition flex items-center justify-center gap-2 shadow-lg shadow-saffron-500/30"
+                >
+                  Start Free Course <ArrowRight className="w-5 h-5" />
+                </Link>
+                <a 
+                  href="https://youtube.com/@theswagwalapm"
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="w-full sm:w-auto bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold text-lg transition"
+                >
+                  Watch on YouTube
+                </a>
+              </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-3xl font-bold text-white mb-1">
-                <Clock className="w-6 h-6 text-saffron-400" />
-                3+
+              {/* Stats Row */}
+              <div className="flex items-center justify-center lg:justify-start gap-8">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">3+</div>
+                  <div className="text-blue-300/50 text-xs">Hours</div>
+                </div>
+                <div className="w-px h-8 bg-blue-500/20" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">11</div>
+                  <div className="text-blue-300/50 text-xs">Lessons</div>
+                </div>
+                <div className="w-px h-8 bg-blue-500/20" />
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">∞</div>
+                  <div className="text-blue-300/50 text-xs">Apps</div>
+                </div>
               </div>
-              <div className="text-blue-200/60 text-sm">Hours Content</div>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-3xl font-bold text-white mb-1">
-                <BookOpen className="w-6 h-6 text-saffron-400" />
-                11
-              </div>
-              <div className="text-blue-200/60 text-sm">Lessons</div>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-1 text-3xl font-bold text-white mb-1">
-                <span className="text-saffron-400">∞</span>
-              </div>
-              <div className="text-blue-200/60 text-sm">Apps to Build</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 px-6 bg-[#0a1628]">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-          <div className="bg-[#0f2847]/80 border border-blue-900/30 rounded-2xl p-8">
-            <Code2 className="w-10 h-10 text-saffron-400 mb-4" />
-            <h3 className="font-display text-xl font-semibold text-white mb-3">No Coding Required</h3>
-            <p className="text-blue-200/60">If you can describe what you want, Claude builds it. Simple.</p>
-          </div>
-          <div className="bg-[#0f2847]/80 border border-blue-900/30 rounded-2xl p-8">
-            <Rocket className="w-10 h-10 text-saffron-400 mb-4" />
-            <h3 className="font-display text-xl font-semibold text-white mb-3">Ship in Hours</h3>
-            <p className="text-blue-200/60">From idea to deployed app in a single session. Real URLs, real users.</p>
-          </div>
-          <div className="bg-[#0f2847]/80 border border-blue-900/30 rounded-2xl p-8">
-            <Sparkles className="w-10 h-10 text-saffron-400 mb-4" />
-            <h3 className="font-display text-xl font-semibold text-white mb-3">PM-First Approach</h3>
-            <p className="text-blue-200/60">Built by a PM for PMs. Focus on product thinking, not syntax.</p>
+      {/* Features - Glassmorphism Cards */}
+      <section className="py-20 px-6 bg-[#050d1a] relative">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.05) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        }} />
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="group bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6">
+                <Code2 className="w-6 h-6 text-blue-400" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-white mb-3">No Coding Required</h3>
+              <p className="text-blue-200/50 leading-relaxed">If you can describe what you want, Claude builds it. Simple.</p>
+            </div>
+            <div className="group bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6">
+                <Rocket className="w-6 h-6 text-blue-400" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-white mb-3">Ship in Hours</h3>
+              <p className="text-blue-200/50 leading-relaxed">From idea to deployed app in a single session. Real URLs, real users.</p>
+            </div>
+            <div className="group bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mb-6">
+                <Sparkles className="w-6 h-6 text-blue-400" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-white mb-3">PM-First Approach</h3>
+              <p className="text-blue-200/50 leading-relaxed">Built by a PM for PMs. Focus on product thinking, not syntax.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Course Modules */}
-      <section id="modules" className="py-20 px-6 bg-[#0a1628]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-3xl font-bold text-white text-center mb-4">Course Modules</h2>
-          <p className="text-blue-200/60 text-center mb-12 max-w-xl mx-auto">From setup to shipping — everything you need to become a vibe coder</p>
+      <section id="modules" className="py-20 px-6 bg-[#050d1a] relative">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.05) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        }} />
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white text-center mb-4">Course Modules</h2>
+          <p className="text-blue-200/50 text-center mb-16 max-w-xl mx-auto">From setup to shipping — everything you need to become a vibe coder</p>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {modules.map((module) => (
-              <div key={module.number} className="bg-[#0f2847]/50 border border-blue-900/30 rounded-2xl p-8">
+              <div key={module.number} className="bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-sm border border-white/10 rounded-2xl p-8">
                 <div className="flex items-start gap-6 mb-6">
-                  <div className="bg-saffron-500/20 text-saffron-400 w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-xl shrink-0">
+                  <div className="bg-gradient-to-br from-blue-500 to-blue-600 text-white w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-xl shrink-0 shadow-lg shadow-blue-500/20">
                     {module.number}
                   </div>
                   <div>
                     <h3 className="font-display text-xl font-semibold text-white mb-2">{module.title}</h3>
-                    <p className="text-blue-200/60">{module.description}</p>
+                    <p className="text-blue-200/50">{module.description}</p>
                   </div>
                 </div>
                 <div className="space-y-3 ml-0 md:ml-18">
@@ -227,13 +262,13 @@ export default function Home() {
                     <Link
                       key={lesson.id}
                       href={lesson.href}
-                      className="flex items-center justify-between bg-[#0a1628]/50 hover:bg-[#0a1628] border border-blue-900/30 hover:border-saffron-500/30 rounded-xl px-5 py-4 transition group"
+                      className="flex items-center justify-between bg-white/[0.03] hover:bg-white/[0.06] border border-white/5 hover:border-blue-500/20 rounded-xl px-5 py-4 transition-all duration-200 group"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="text-saffron-400/70 text-sm font-medium">{lesson.id}</span>
-                        <span className="text-blue-100 group-hover:text-white transition">{lesson.title}</span>
+                        <span className="text-blue-400/60 text-sm font-mono">{lesson.id}</span>
+                        <span className="text-blue-100/80 group-hover:text-white transition">{lesson.title}</span>
                       </div>
-                      <span className="text-blue-300/40 text-sm">{lesson.duration}</span>
+                      <span className="text-blue-300/30 text-sm">{lesson.duration}</span>
                     </Link>
                   ))}
                 </div>
@@ -243,34 +278,53 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="py-20 px-6 bg-[#0f2847]/30">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-display text-3xl font-bold text-white text-center mb-4">From the Rethink Community</h2>
-          <p className="text-blue-200/60 text-center mb-12 max-w-xl mx-auto">500+ PMs trained. Here is what they achieved.</p>
+      {/* Testimonials - Masonry Style like Rethink */}
+      <section id="testimonials" className="py-20 px-6 bg-[#050d1a] relative">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.05) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        }} />
+        <div className="max-w-6xl mx-auto relative z-10">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white text-center mb-4">Not enough testimonials?</h2>
+          <p className="text-blue-200/50 text-center mb-16">Read what our students have to say about us</p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          {/* Masonry Grid */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-[#0a1628]/80 border border-blue-900/30 rounded-2xl p-6">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-saffron-400 fill-saffron-400" />
-                  ))}
+              <div key={index} className="break-inside-avoid bg-white rounded-2xl p-6 shadow-xl">
+                {/* Tag */}
+                <div className="mb-4">
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                    testimonial.tag === 'Jobs Cracked' 
+                      ? 'bg-blue-100 text-blue-700' 
+                      : 'bg-red-100 text-red-600'
+                  }`}>
+                    {testimonial.tag}
+                  </span>
                 </div>
-                <p className="text-blue-100/80 mb-4 leading-relaxed">&quot;{testimonial.quote}&quot;</p>
+                
+                {/* Quote */}
+                <p className="text-gray-700 mb-6 leading-relaxed text-[15px]">{testimonial.quote}</p>
+                
+                {/* Author */}
                 <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-white font-medium">{testimonial.name}</div>
-                    <div className="text-blue-300/50 text-sm">{testimonial.role}</div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center text-gray-600 font-semibold text-sm">
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900 text-sm">{testimonial.name}</div>
+                      <div className="text-gray-500 text-xs">{testimonial.role}</div>
+                    </div>
                   </div>
                   {testimonial.linkedin && (
                     <a 
                       href={testimonial.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-400 hover:text-blue-300 transition"
+                      className="w-8 h-8 bg-[#0077b5] rounded-lg flex items-center justify-center text-white hover:bg-[#005885] transition"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <Linkedin className="w-4 h-4" />
                     </a>
                   )}
                 </div>
@@ -278,87 +332,92 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-12">
             <a 
               href="https://rethinksystems.in" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-saffron-400 hover:text-saffron-300 transition text-sm"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-full font-medium transition shadow-lg shadow-blue-500/20"
             >
-              See more success stories at rethinksystems.in →
+              Read More
             </a>
           </div>
         </div>
       </section>
 
-      {/* About - Updated */}
-      <section id="about" className="py-20 px-6 bg-[#0a1628]">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-[#0f2847] to-[#0a1628] border border-blue-900/30 rounded-3xl p-10 flex flex-col md:flex-row items-start gap-10">
-            <div className="text-6xl shrink-0">🧑‍💻</div>
-            <div>
-              <h2 className="font-display text-2xl font-bold text-white mb-6">About Shravan</h2>
-              <ul className="space-y-4 text-blue-100/80 mb-8">
-                <li className="flex items-start gap-2">
-                  <span className="text-saffron-400 mt-1">•</span>
-                  <span>10+ years building products across logistics, edtech, and consumer tech.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-saffron-400 mt-1">•</span>
-                  <span>A globally recognised Product Management educator and leader, also known as <strong className="text-white">Swagwalapm</strong> for making product thinking practical, grounded, and human.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-saffron-400 mt-1">•</span>
-                  <span>Guest lecturer at IIMs, IITs, ISB, and NTU across the world.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-saffron-400 mt-1">•</span>
-                  <span>Has mentored 10,000+ PMs, many of whom now build and lead products at Microsoft, Meta, Google, and Amazon.</span>
-                </li>
-              </ul>
-              <div className="flex flex-wrap gap-3">
-                <a 
-                  href="https://youtube.com/@theswagwalapm" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 bg-saffron-500/20 hover:bg-saffron-500/30 text-saffron-400 px-5 py-2.5 rounded-full font-medium transition"
-                >
-                  YouTube
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/shravantickoo/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 px-5 py-2.5 rounded-full font-medium transition"
-                >
-                  LinkedIn
-                </a>
-                <a 
-                  href="https://rethinksystems.in" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full font-medium transition"
-                >
-                  Rethink Systems
-                </a>
-              </div>
+      {/* About Shravan */}
+      <section id="about" className="py-20 px-6 bg-[#050d1a] relative">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.05) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        }} />
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-3xl p-10">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-8">About Shravan</h2>
+            <ul className="space-y-4 text-blue-100/70 mb-10">
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 mt-1.5">•</span>
+                <span>10+ years building products across logistics, edtech, and consumer tech.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 mt-1.5">•</span>
+                <span>A globally recognised Product Management educator and leader, also known as <strong className="text-white">Swagwalapm</strong> for making product thinking practical, grounded, and human.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 mt-1.5">•</span>
+                <span>Guest lecturer at IIMs, IITs, ISB, and NTU across the world.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-400 mt-1.5">•</span>
+                <span>Has mentored 10,000+ PMs, many of whom now build and lead products at Microsoft, Meta, Google, and Amazon.</span>
+              </li>
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <a 
+                href="https://youtube.com/@theswagwalapm" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 px-6 py-3 rounded-full font-medium transition border border-red-500/20"
+              >
+                YouTube
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/shravantickoo/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-[#0077b5]/20 hover:bg-[#0077b5]/30 text-[#0077b5] px-6 py-3 rounded-full font-medium transition border border-[#0077b5]/20"
+              >
+                LinkedIn
+              </a>
+              <a 
+                href="https://rethinksystems.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition border border-white/10"
+              >
+                Rethink Systems
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-20 px-6 bg-[#0f2847]/30">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-3xl font-bold text-white text-center mb-4">Frequently Asked Questions</h2>
-          <p className="text-blue-200/60 text-center mb-12">Everything you need to know before starting</p>
+      <section id="faq" className="py-20 px-6 bg-[#050d1a] relative">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.05) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        }} />
+        <div className="max-w-3xl mx-auto relative z-10">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white text-center mb-4">Frequently Asked Questions</h2>
+          <p className="text-blue-200/50 text-center mb-12">Everything you need to know before starting</p>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details key={index} className="bg-[#0a1628]/80 border border-blue-900/30 rounded-xl group">
+              <details key={index} className="bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-sm border border-white/10 rounded-xl group">
                 <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
                   <span className="text-white font-medium pr-4">{faq.question}</span>
-                  <ChevronDown className="w-5 h-5 text-blue-300/50 group-open:rotate-180 transition-transform shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-blue-400/50 group-open:rotate-180 transition-transform shrink-0" />
                 </summary>
                 <div className="px-6 pb-5 text-blue-200/60 leading-relaxed">
                   {faq.answer}
@@ -370,15 +429,16 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 bg-[#0a1628]">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-display text-3xl font-bold text-white mb-4">Ready to Start Vibe Coding?</h2>
-          <p className="text-blue-200/60 mb-8">
+      <section className="py-20 px-6 bg-[#050d1a] relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent" />
+        <div className="max-w-2xl mx-auto text-center relative z-10">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Ready to Start Vibe Coding?</h2>
+          <p className="text-blue-200/50 mb-8">
             Join thousands of PMs learning to build with AI. It is free, it is fun, and you will ship your first app this weekend.
           </p>
           <Link 
             href="/module-0/prerequisites"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition shadow-lg shadow-saffron-500/25"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition shadow-lg shadow-saffron-500/30"
           >
             Start Module 0 <ArrowRight className="w-5 h-5" />
           </Link>
@@ -386,10 +446,10 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-blue-900/30 py-10 px-6 bg-[#0a1628]">
+      <footer className="border-t border-white/5 py-10 px-6 bg-[#050d1a]">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-display font-bold text-white">Vibe Coding Masterclass</div>
-          <div className="text-blue-300/50 text-sm">
+          <div className="text-blue-300/40 text-sm">
             © 2025 Shravan (<a href="https://www.linkedin.com/in/shravantickoo/" target="_blank" rel="noopener noreferrer" className="hover:text-saffron-400 transition">The Swag Wala PM</a>). Made with Claude Code, obviously. 🧡
           </div>
         </div>
