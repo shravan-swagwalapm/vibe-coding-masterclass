@@ -9,6 +9,8 @@ import {
   Terminal,
   Sparkles,
   Rocket,
+  Layers,
+  Zap,
   Menu,
   X,
   ArrowLeft,
@@ -42,29 +44,66 @@ const navigation = [
     title: 'Module 0: Getting Started',
     icon: Terminal,
     items: [
-      { title: 'Prerequisites', href: '/module-0/prerequisites' },
-      { title: 'Installation', href: '/module-0/installation' },
+      { title: 'Who This Course Is For', href: '/module-0/prerequisites' },
+      { title: 'System Requirements', href: '/module-0/system-requirements' },
+      { title: 'Installing Claude Code', href: '/module-0/installation' },
       { title: 'Your First Command', href: '/module-0/first-command' },
+      { title: 'Hello World App', href: '/module-0/hello-world' },
+      { title: 'Understanding the Terminal', href: '/module-0/terminal-basics' },
     ]
   },
   {
     title: 'Module 1: Vibe Coding Fundamentals',
     icon: Sparkles,
     items: [
-      { title: 'What is Vibe Coding?', href: '/module-1/what-is-vibe-coding' },
-      { title: 'Prompting for Code', href: '/module-1/prompting' },
-      { title: 'File Operations', href: '/module-1/file-operations' },
-      { title: 'Project Memory', href: '/module-1/project-memory' },
+      { title: 'The Vibe Coding Manifesto', href: '/module-1/what-is-vibe-coding' },
+      { title: 'Thinking in Specifications', href: '/module-1/prompting' },
+      { title: 'The Art of Clear Instructions', href: '/module-1/prompting-patterns' },
+      { title: 'Context is King', href: '/module-1/context-management' },
+      { title: 'File System Navigation', href: '/module-1/file-operations' },
+      { title: 'CLAUDE.md Deep Dive', href: '/module-1/project-memory' },
+      { title: 'Reading & Understanding Code', href: '/module-1/reading-code' },
+      { title: 'Common Errors & Fixes', href: '/module-1/common-errors' },
+      { title: 'When to Iterate vs. Start Over', href: '/module-1/iterate-vs-restart' },
     ]
   },
   {
     title: 'Module 2: Build Your First App',
     icon: Rocket,
     items: [
-      { title: 'Planning Your App', href: '/module-2/planning' },
-      { title: 'Scaffolding with Claude', href: '/module-2/scaffolding' },
-      { title: 'Iterating & Debugging', href: '/module-2/debugging' },
-      { title: 'Deploying to Production', href: '/module-2/deployment' },
+      { title: 'Choosing Your First Project', href: '/module-2/planning' },
+      { title: 'Writing a 1-Page Spec', href: '/module-2/one-page-spec' },
+      { title: 'Project Setup with Claude', href: '/module-2/scaffolding' },
+      { title: 'Building the Core Features', href: '/module-2/debugging' },
+      { title: 'Adding Styling & Polish', href: '/module-2/styling-polish' },
+      { title: 'Testing Your App', href: '/module-2/testing' },
+      { title: 'Deploying to Vercel', href: '/module-2/deployment' },
+      { title: 'Custom Domains & DNS', href: '/module-2/custom-domains' },
+      { title: 'Sharing Your Work', href: '/module-2/sharing-work' },
+    ]
+  },
+  {
+    title: 'Module 3: Real-World Projects',
+    icon: Layers,
+    items: [
+      { title: 'Landing Page Builder', href: '/module-3/landing-page' },
+      { title: 'Internal Dashboard', href: '/module-3/dashboard' },
+      { title: 'Chrome Extension', href: '/module-3/chrome-extension' },
+      { title: 'API Integration', href: '/module-3/api-integration' },
+      { title: 'Database Basics (Supabase)', href: '/module-3/database-basics' },
+      { title: 'User Authentication', href: '/module-3/authentication' },
+    ]
+  },
+  {
+    title: 'Module 4: Advanced Patterns',
+    icon: Zap,
+    items: [
+      { title: 'Multi-File Projects', href: '/module-4/multi-file-projects' },
+      { title: 'Git for PMs', href: '/module-4/git-basics' },
+      { title: 'AI-Assisted Debugging', href: '/module-4/ai-debugging' },
+      { title: 'Performance Basics', href: '/module-4/performance' },
+      { title: 'Mobile Responsiveness', href: '/module-4/responsive-design' },
+      { title: "What's Next", href: '/module-4/whats-next' },
     ]
   },
 ]
@@ -72,7 +111,7 @@ const navigation = [
 const socials = [
   { icon: Youtube, href: "https://youtube.com/@theswagwalapm", label: "YouTube" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/shravantickoo/", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/shaborkar", label: "Twitter" },
+  { icon: Twitter, href: "https://twitter.com/shravantickoo23", label: "Twitter" },
   { icon: Instagram, href: "https://instagram.com/shravantickoo", label: "Instagram" },
 ]
 
@@ -81,7 +120,7 @@ const allLessons = navigation.flatMap(section => section.items)
 export default function CourseLayout({ children }) {
   const pathname = usePathname()
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [expandedSections, setExpandedSections] = useState([0, 1, 2])
+  const [expandedSections, setExpandedSections] = useState([0, 1, 2, 3, 4])
   const [completedLessons, setCompletedLessons] = useState([])
 
   useEffect(() => {
