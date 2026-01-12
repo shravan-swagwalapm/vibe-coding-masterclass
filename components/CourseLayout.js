@@ -33,8 +33,8 @@ const Logo = ({ className = "" }) => (
       </div>
     </div>
     <div className="flex flex-col">
-      <span className="font-semibold text-white text-sm leading-tight">Vibe Coding</span>
-      <span className="text-[10px] text-blue-400/60 tracking-wider">M A S T E R C L A S S</span>
+      <span className="font-semibold text-white text-sm leading-tight">Rethink Systems</span>
+      <span className="text-[10px] text-blue-400/60 tracking-wider">V I B E  C O D I N G</span>
     </div>
   </Link>
 )

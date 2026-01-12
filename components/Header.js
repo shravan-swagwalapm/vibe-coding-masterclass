@@ -14,7 +14,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <span className="text-white font-semibold text-lg tracking-tight">
-              Vibe<span className="text-blue-400">Coding</span>
+              Rethink<span className="text-blue-400">Systems</span>
             </span>
           </Link>
 
