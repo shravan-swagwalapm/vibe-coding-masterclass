@@ -90,13 +90,21 @@ export default function CourseLayout({ children }) {
             </Link>
           </div>
           
-          <Link 
-            href="/"
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition"
-          >
-            <Home className="w-4 h-4" />
-            <span className="hidden sm:inline">Back to Home</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link 
+              href="/"
+              className="flex items-center gap-2 text-slate-400 hover:text-white transition"
+            >
+              <Home className="w-4 h-4" />
+              <span className="hidden sm:inline">Home</span>
+            </Link>
+            <Link 
+              href="/resources"
+              className="flex items-center gap-2 text-slate-400 hover:text-white transition"
+            >
+              <span className="hidden sm:inline">Resources</span>
+            </Link>
+          </div>
         </div>
       </nav>
 

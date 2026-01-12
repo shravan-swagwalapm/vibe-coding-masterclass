@@ -1,4 +1,4 @@
-import { Terminal, Apple, Monitor, AlertCircle, CheckCircle2, Copy, ExternalLink } from 'lucide-react'
+import { Terminal, Apple, Monitor, AlertCircle, CheckCircle2, ExternalLink, BookOpen } from 'lucide-react'
 
 export const metadata = {
   title: 'Installation | Vibe Coding Masterclass',
@@ -33,7 +33,7 @@ export default function InstallationPage() {
           <div>
             <div className="font-semibold text-white mb-1">One Command Installation</div>
             <div className="text-slate-300 text-sm">
-              Claude Code installs with a single command. No complex setup, no dependencies to manage manually.
+              Claude Code installs with a single command. These are the <a href="https://github.com/anthropics/claude-code#installation" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">official commands from Anthropic</a>.
             </div>
           </div>
         </div>
@@ -49,16 +49,20 @@ export default function InstallationPage() {
         </div>
         
         <p className="text-slate-400 mb-4">
-          Open Terminal (press <code className="bg-slate-800 px-2 py-0.5 rounded text-saffron-400">Cmd + Space</code>, type "Terminal", press Enter) and run:
+          Open Terminal (press <code className="bg-slate-800 px-2 py-0.5 rounded text-saffron-400">Cmd + Space</code>, type &quot;Terminal&quot;, press Enter) and run:
         </p>
 
-        <CodeBlock title="Terminal">
-{`curl -fsSL https://claude.ai/install.sh | sh`}
+        <CodeBlock title="Terminal (Recommended)">
+{`curl -fsSL https://claude.ai/install.sh | bash`}
         </CodeBlock>
 
-        <p className="text-slate-400 text-sm">
-          This downloads and runs the official Claude Code installer. It will ask for your password to complete the installation.
+        <p className="text-slate-400 text-sm mb-4">
+          Alternative: Install via Homebrew:
         </p>
+
+        <CodeBlock title="Homebrew">
+{`brew install --cask claude-code`}
+        </CodeBlock>
       </div>
 
       {/* Windows */}
@@ -69,7 +73,7 @@ export default function InstallationPage() {
         </div>
         
         <p className="text-slate-400 mb-4">
-          Open PowerShell as Administrator (right-click Start → "Windows PowerShell (Admin)") and run:
+          Open PowerShell as Administrator (right-click Start then select &quot;Windows PowerShell (Admin)&quot;) and run:
         </p>
 
         <CodeBlock title="PowerShell (Admin)">
@@ -93,12 +97,31 @@ export default function InstallationPage() {
         </p>
 
         <CodeBlock title="Terminal">
-{`curl -fsSL https://claude.ai/install.sh | sh`}
+{`curl -fsSL https://claude.ai/install.sh | bash`}
         </CodeBlock>
 
         <p className="text-slate-400 text-sm">
           Same command as macOS. Works on Ubuntu, Debian, Fedora, and most other distributions.
         </p>
+      </div>
+
+      {/* NPM Alternative */}
+      <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-6 mb-6">
+        <h3 className="font-display text-lg font-semibold text-white mb-3">Alternative: NPM Installation</h3>
+        <p className="text-slate-400 text-sm mb-4">
+          If you have Node.js 18+ installed, you can install via NPM (works on all platforms):
+        </p>
+        <CodeBlock title="NPM (requires Node.js 18+)">
+{`npm install -g @anthropic-ai/claude-code`}
+        </CodeBlock>
+        <a 
+          href="https://www.npmjs.com/package/@anthropic-ai/claude-code" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-slate-400 text-sm hover:text-slate-300 transition"
+        >
+          View on NPM <ExternalLink className="w-3 h-3" />
+        </a>
       </div>
 
       <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Verify Installation</h2>
@@ -122,11 +145,11 @@ export default function InstallationPage() {
       </p>
 
       <CodeBlock title="Terminal">
-{`claude auth`}
+{`claude`}
       </CodeBlock>
 
       <p className="text-slate-400 mb-4">
-        This will open a browser window asking you to sign in to your Claude account. Once you approve, you're all set!
+        The first time you run <code className="text-saffron-400">claude</code>, it will prompt you to authenticate. Choose &quot;Log in with your subscription account&quot; and follow the browser prompts.
       </p>
 
       <div className="flex items-start gap-4 bg-green-500/10 border border-green-500/20 rounded-xl p-5 my-8">
@@ -134,7 +157,7 @@ export default function InstallationPage() {
         <div>
           <h3 className="font-semibold text-white mb-1">Installation Complete!</h3>
           <p className="text-slate-300 text-sm">
-            You now have Claude Code installed and authenticated. In the next lesson, you'll run your first command.
+            You now have Claude Code installed and authenticated. In the next lesson, you will run your first command.
           </p>
         </div>
       </div>
@@ -144,7 +167,7 @@ export default function InstallationPage() {
       <div className="space-y-4">
         <details className="bg-midnight-900/50 border border-slate-800 rounded-xl">
           <summary className="px-5 py-4 cursor-pointer text-white font-medium hover:text-saffron-400 transition">
-            "Command not found" error
+            &quot;Command not found&quot; error
           </summary>
           <div className="px-5 pb-4 text-slate-400 text-sm">
             Close and reopen your terminal, then try again. The installation adds Claude to your PATH, but this only takes effect in new terminal windows.
@@ -156,7 +179,7 @@ export default function InstallationPage() {
             Authentication fails
           </summary>
           <div className="px-5 pb-4 text-slate-400 text-sm">
-            Make sure you have an active Claude Pro or Max subscription. Free accounts don't have access to Claude Code.
+            Make sure you have an active Claude Pro or Max subscription. Free accounts do not have access to Claude Code.
           </div>
         </details>
 
@@ -165,24 +188,59 @@ export default function InstallationPage() {
             Permission denied on macOS/Linux
           </summary>
           <div className="px-5 pb-4 text-slate-400 text-sm">
-            Try running with sudo: <code className="bg-slate-800 px-2 py-0.5 rounded text-saffron-400">sudo curl -fsSL https://claude.ai/install.sh | sh</code>
+            Do NOT use sudo with npm install. If you have permission errors, see the <a href="https://code.claude.com/docs/en/setup" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">official troubleshooting guide</a>.
           </div>
         </details>
       </div>
 
-      <div className="bg-gradient-to-r from-saffron-500/10 to-saffron-600/5 border border-saffron-500/20 rounded-xl p-6 mt-8">
-        <div className="font-semibold text-white mb-2">📚 Official Documentation</div>
-        <p className="text-slate-300 text-sm mb-3">
-          For more detailed installation instructions and edge cases, check the official docs:
-        </p>
-        <a 
-          href="https://docs.anthropic.com/en/docs/claude-code" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-saffron-400 text-sm hover:text-saffron-300 transition"
-        >
-          Claude Code Documentation <ExternalLink className="w-3 h-3" />
-        </a>
+      {/* Further Reading Section */}
+      <div className="border-t border-slate-800 pt-8 mt-12">
+        <h2 className="font-display text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-saffron-400" />
+          Further Reading
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <a 
+            href="https://code.claude.com/docs/en/setup" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Official Docs</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Complete Setup Guide</div>
+            <div className="text-slate-500 text-sm mt-1">code.claude.com</div>
+          </a>
+          <a 
+            href="https://github.com/anthropics/claude-code" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">GitHub</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Installation README</div>
+            <div className="text-slate-500 text-sm mt-1">github.com/anthropics/claude-code</div>
+          </a>
+          <a 
+            href="https://docs.anthropic.com/en/docs/claude-code/ide-integrations" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">IDE Integration</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">VS Code Extension Setup</div>
+            <div className="text-slate-500 text-sm mt-1">docs.anthropic.com</div>
+          </a>
+          <a 
+            href="https://medium.com/@creativeaininja/complete-beginners-guide-to-claude-code-from-setup-to-your-first-ai-coding-session-57f43119ec62" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Tutorial</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Complete Beginner Guide</div>
+            <div className="text-slate-500 text-sm mt-1">Step-by-step walkthrough</div>
+          </a>
+        </div>
       </div>
     </div>
   )

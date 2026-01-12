@@ -92,6 +92,7 @@ export default function HomePage() {
             
             <div className="hidden md:flex items-center gap-8">
               <Link href="#modules" className="text-slate-400 hover:text-white transition">Modules</Link>
+              <Link href="/resources" className="text-slate-400 hover:text-white transition">Resources</Link>
               <Link href="#about" className="text-slate-400 hover:text-white transition">About</Link>
               <a 
                 href="https://github.com" 

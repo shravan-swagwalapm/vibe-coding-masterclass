@@ -1,4 +1,4 @@
-import { Rocket, Globe, CheckCircle2, ExternalLink, PartyPopper } from 'lucide-react'
+import { Rocket, Globe, CheckCircle2, ExternalLink, PartyPopper, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata = {
@@ -25,16 +25,16 @@ export default function DeploymentPage() {
       <div className="mb-8">
         <div className="text-sm text-saffron-400 font-medium mb-2">Module 2 • Lesson 4</div>
         <h1 className="font-display text-4xl font-bold text-white mb-4">Deploying to Production</h1>
-        <p className="text-xl text-slate-400">Time to ship. Let's get your app live on the internet.</p>
+        <p className="text-xl text-slate-400">Time to ship. Let us get your app live on the internet.</p>
       </div>
 
       <div className="bg-gradient-to-r from-green-500/10 to-green-600/5 border border-green-500/20 rounded-xl p-6 mb-8">
         <div className="flex items-start gap-3">
           <PartyPopper className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
           <div>
-            <div className="font-semibold text-white mb-1">You're About to Ship!</div>
+            <div className="font-semibold text-white mb-1">You Are About to Ship!</div>
             <div className="text-slate-300 text-sm">
-              In 15 minutes, your app will have a real URL that anyone can visit.
+              In 15 minutes, your app will have a real URL that anyone can visit. <a href="https://vercel.com/docs/frameworks/full-stack/nextjs" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">Vercel is free</a> for personal projects.
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function DeploymentPage() {
       <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Option 1: Vercel (Recommended)</h2>
 
       <p className="text-slate-300 mb-4">
-        Vercel is free, fast, and works great with Next.js/React projects.
+        <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Vercel</a> is the company behind Next.js. It is free, fast, and works perfectly with Next.js/React projects.
       </p>
 
       <div className="space-y-4 mb-8">
@@ -52,8 +52,12 @@ export default function DeploymentPage() {
           <div>
             <h3 className="font-semibold text-white mb-1">Push to GitHub</h3>
             <p className="text-slate-400 text-sm mb-2">Ask Claude to help you set up Git:</p>
-            <CodeBlock>{`Initialize a git repo and create a .gitignore for a React project`}</CodeBlock>
-            <p className="text-slate-400 text-sm mt-2">Then create a repo on GitHub and push your code.</p>
+            <CodeBlock>{`Initialize a git repo and push to GitHub`}</CodeBlock>
+            <p className="text-slate-400 text-sm mt-2">Or manually:</p>
+            <CodeBlock>{`git init
+git add .
+git commit -m "Initial commit"
+gh repo create my-app --public --source=. --push`}</CodeBlock>
           </div>
         </div>
 
@@ -61,10 +65,12 @@ export default function DeploymentPage() {
           <span className="bg-saffron-500/20 text-saffron-400 w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">2</span>
           <div>
             <h3 className="font-semibold text-white mb-1">Connect to Vercel</h3>
-            <p className="text-slate-400 text-sm mb-2">
-              Go to <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">vercel.com</a> and sign up with GitHub.
-            </p>
-            <p className="text-slate-400 text-sm">Click "Add New Project" → Import your repo → Deploy</p>
+            <div className="text-slate-400 text-sm space-y-2">
+              <p>1. Go to <a href="https://vercel.com/new" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">vercel.com/new</a></p>
+              <p>2. Sign up with GitHub (if you have not already)</p>
+              <p>3. Click &quot;Import&quot; next to your repo</p>
+              <p>4. Click &quot;Deploy&quot;</p>
+            </div>
           </div>
         </div>
 
@@ -73,10 +79,17 @@ export default function DeploymentPage() {
           <div>
             <h3 className="font-semibold text-white mb-1">Get Your URL</h3>
             <p className="text-slate-400 text-sm">
-              Vercel gives you a URL like <code className="text-saffron-400">your-app.vercel.app</code>
+              Vercel gives you a URL like <code className="text-saffron-400">your-app.vercel.app</code> — live in about 60 seconds!
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-5 mb-8">
+        <h3 className="font-semibold text-white mb-2">Auto-Deploy on Push</h3>
+        <p className="text-slate-400 text-sm">
+          Once connected, every <code className="text-saffron-400">git push</code> automatically deploys your latest code. No manual steps needed.
+        </p>
       </div>
 
       <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Option 2: Netlify</h2>
@@ -87,18 +100,18 @@ export default function DeploymentPage() {
 
       <div className="bg-midnight-900/50 border border-slate-800 rounded-xl p-5 mb-8">
         <p className="text-slate-400 text-sm">
-          Simply drag and drop your project folder onto <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">app.netlify.com/drop</a>
+          Drag and drop your project folder onto <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">app.netlify.com/drop</a> — that is it!
         </p>
       </div>
 
       <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Option 3: GitHub Pages</h2>
 
       <p className="text-slate-300 mb-4">
-        Perfect for simple HTML/CSS/JS projects.
+        Perfect for simple HTML/CSS/JS projects. Free hosting at <code className="text-saffron-400">username.github.io/repo-name</code>.
       </p>
 
       <CodeBlock title="Claude Code">
-{`Help me deploy this to GitHub Pages. 
+{`Help me deploy this to GitHub Pages.
 Set up the repo and give me step-by-step instructions.`}
       </CodeBlock>
 
@@ -109,15 +122,15 @@ Set up the repo and give me step-by-step instructions.`}
       </p>
 
       <ul className="list-disc list-inside text-slate-400 space-y-2 mb-6 ml-4">
-        <li>Buy a domain from Namecheap, Google Domains, or Cloudflare (~$10/year)</li>
+        <li>Buy a domain from <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Namecheap</a>, <a href="https://www.cloudflare.com/products/registrar/" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Cloudflare</a>, or <a href="https://domains.google" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Google Domains</a> (~$10/year)</li>
         <li>Add it to your Vercel/Netlify project settings</li>
         <li>Update DNS records (the platform will guide you)</li>
       </ul>
 
       <div className="bg-gradient-to-r from-saffron-500/10 to-saffron-600/5 border border-saffron-500/20 rounded-xl p-6 my-8">
-        <div className="font-semibold text-white mb-2">🎉 Congratulations!</div>
+        <div className="font-semibold text-white mb-2">Congratulations!</div>
         <p className="text-slate-300 text-sm mb-4">
-          You've completed the Vibe Coding Masterclass. You now know how to:
+          You have completed the Vibe Coding Masterclass. You now know how to:
         </p>
         <ul className="space-y-2 text-slate-300 text-sm">
           <li className="flex items-center gap-2">
@@ -147,7 +160,7 @@ Set up the repo and give me step-by-step instructions.`}
         </ul>
       </div>
 
-      <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">What's Next?</h2>
+      <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">What is Next?</h2>
 
       <div className="grid sm:grid-cols-2 gap-4 mb-8">
         <div className="bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
@@ -170,7 +183,7 @@ Set up the repo and give me step-by-step instructions.`}
 
       <div className="bg-gradient-to-br from-midnight-900 to-midnight-800 border border-slate-800 rounded-3xl p-8 text-center">
         <div className="text-4xl mb-4">🚀</div>
-        <h2 className="font-display text-2xl font-bold text-white mb-4">You're a Vibe Coder Now</h2>
+        <h2 className="font-display text-2xl font-bold text-white mb-4">You are a Vibe Coder Now</h2>
         <p className="text-slate-400 mb-6 max-w-md mx-auto">
           Go build something. The only limit is your imagination (and maybe your Claude subscription quota).
         </p>
@@ -180,6 +193,56 @@ Set up the repo and give me step-by-step instructions.`}
         >
           Back to Home
         </Link>
+      </div>
+
+      {/* Further Reading Section */}
+      <div className="border-t border-slate-800 pt-8 mt-12">
+        <h2 className="font-display text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-saffron-400" />
+          Further Reading
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <a 
+            href="https://nextjs.org/learn" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Official Course</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Learn Next.js</div>
+            <div className="text-slate-500 text-sm mt-1">nextjs.org</div>
+          </a>
+          <a 
+            href="https://vercel.com/docs/frameworks/full-stack/nextjs" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Vercel Docs</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Next.js on Vercel</div>
+            <div className="text-slate-500 text-sm mt-1">vercel.com</div>
+          </a>
+          <a 
+            href="https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Advanced Course</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">DeepLearning.AI + Anthropic</div>
+            <div className="text-slate-500 text-sm mt-1">Free official course</div>
+          </a>
+          <a 
+            href="https://creatoreconomy.so/p/claude-code-beginners-tutorial-build-a-movie-app-in-15-minutes" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Project Tutorial</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Build a Movie App</div>
+            <div className="text-slate-500 text-sm mt-1">15-minute hands-on project</div>
+          </a>
+        </div>
       </div>
     </div>
   )

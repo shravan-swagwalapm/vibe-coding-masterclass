@@ -1,4 +1,4 @@
-import { Sparkles, Code2, Brain, Zap, MessageSquare, RefreshCw, ArrowRight } from 'lucide-react'
+import { Sparkles, Code2, Brain, Zap, MessageSquare, RefreshCw, ExternalLink, BookOpen, Quote } from 'lucide-react'
 
 export const metadata = {
   title: 'What is Vibe Coding? | Vibe Coding Masterclass',
@@ -14,11 +14,29 @@ export default function WhatIsVibeCodingPage() {
         <p className="text-xl text-slate-400">A new way to build software where you describe what you want, and AI writes the code.</p>
       </div>
 
+      {/* The Origin Quote */}
       <div className="bg-gradient-to-r from-saffron-500/10 to-saffron-600/5 border border-saffron-500/20 rounded-xl p-6 mb-8">
-        <blockquote className="text-lg text-slate-300 italic">
-          "There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
+        <Quote className="w-8 h-8 text-saffron-400/50 mb-3" />
+        <blockquote className="text-lg text-slate-300 italic mb-4">
+          &quot;There is a new kind of coding I call vibe coding, where you fully give in to the vibes, embrace exponentials, and forget that the code even exists. It is possible because the LLMs are getting too good. I just see stuff, say stuff, run stuff, and copy paste stuff, and it mostly works.&quot;
         </blockquote>
-        <div className="mt-3 text-sm text-saffron-400">— Andrej Karpathy, Former Tesla AI Director</div>
+        <div className="flex items-center justify-between">
+          <div className="text-sm text-saffron-400">— Andrej Karpathy, February 2025</div>
+          <a 
+            href="https://x.com/karpathy/status/1886192184808149383" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-slate-400 text-sm hover:text-saffron-400 transition"
+          >
+            Original Tweet <ExternalLink className="w-3 h-3" />
+          </a>
+        </div>
+      </div>
+
+      <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-4 mb-8">
+        <p className="text-slate-400 text-sm">
+          <strong className="text-white">Fun fact:</strong> &quot;Vibe coding&quot; was named the <a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Collins English Dictionary Word of the Year for 2025</a>. It went from a tweet to a cultural phenomenon in months.
+        </p>
       </div>
 
       <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">The Old Way vs. The Vibe Way</h2>
@@ -110,13 +128,13 @@ export default function WhatIsVibeCodingPage() {
       </div>
 
       <p className="text-slate-400 mb-8">
-        You keep looping until it's exactly what you want. Each iteration takes seconds, not hours.
+        You keep looping until it is exactly what you want. Each iteration takes seconds, not hours.
       </p>
 
       <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Why This Works for PMs</h2>
 
       <p className="text-slate-300 mb-6">
-        Product managers are actually <em>better</em> at vibe coding than many engineers. Here's why:
+        Product managers are actually <em>better</em> at vibe coding than many engineers. Here is why:
       </p>
 
       <div className="space-y-4 mb-8">
@@ -135,7 +153,7 @@ export default function WhatIsVibeCodingPage() {
           <div>
             <h3 className="font-semibold text-white mb-1">You write clear requirements</h3>
             <p className="text-slate-400 text-sm">
-              PRDs, user stories, acceptance criteria — you've been training for this. Clear prompts = better code.
+              PRDs, user stories, acceptance criteria — you have been training for this. Clear prompts = better code.
             </p>
           </div>
         </div>
@@ -143,7 +161,7 @@ export default function WhatIsVibeCodingPage() {
         <div className="flex items-start gap-4 bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
           <RefreshCw className="w-6 h-6 text-saffron-400 shrink-0 mt-0.5" />
           <div>
-            <h3 className="font-semibold text-white mb-1">You're used to iteration</h3>
+            <h3 className="font-semibold text-white mb-1">You are used to iteration</h3>
             <p className="text-slate-400 text-sm">
               Ship, learn, improve. The vibe coding loop is just product development at light speed.
             </p>
@@ -159,16 +177,16 @@ export default function WhatIsVibeCodingPage() {
 
       <div className="grid sm:grid-cols-2 gap-4 mb-8">
         <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-4">
-          <span className="text-saffron-400">✦</span> Landing pages & marketing sites
+          <span className="text-saffron-400">✦</span> Landing pages and marketing sites
         </div>
         <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-4">
-          <span className="text-saffron-400">✦</span> Internal tools & dashboards
+          <span className="text-saffron-400">✦</span> Internal tools and dashboards
         </div>
         <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-4">
           <span className="text-saffron-400">✦</span> Chrome extensions
         </div>
         <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-4">
-          <span className="text-saffron-400">✦</span> API integrations & automations
+          <span className="text-saffron-400">✦</span> API integrations and automations
         </div>
         <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-4">
           <span className="text-saffron-400">✦</span> Mobile-responsive web apps
@@ -181,9 +199,59 @@ export default function WhatIsVibeCodingPage() {
       <div className="bg-gradient-to-r from-saffron-500/10 to-saffron-600/5 border border-saffron-500/20 rounded-xl p-6 mt-8">
         <div className="font-semibold text-white mb-2">Key Mindset Shift</div>
         <p className="text-slate-300 text-sm">
-          Stop thinking "I can't code." Start thinking "I can describe what I want clearly." 
-          That's the only skill that matters in vibe coding.
+          Stop thinking &quot;I cannot code.&quot; Start thinking &quot;I can describe what I want clearly.&quot; 
+          That is the only skill that matters in vibe coding.
         </p>
+      </div>
+
+      {/* Further Reading Section */}
+      <div className="border-t border-slate-800 pt-8 mt-12">
+        <h2 className="font-display text-xl font-bold text-white mb-4 flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-saffron-400" />
+          Further Reading
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <a 
+            href="https://x.com/karpathy/status/1886192184808149383" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Original Source</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Karpathy Viral Tweet</div>
+            <div className="text-slate-500 text-sm mt-1">The tweet that started it all</div>
+          </a>
+          <a 
+            href="https://en.wikipedia.org/wiki/Vibe_coding" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Wikipedia</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Vibe Coding Definition</div>
+            <div className="text-slate-500 text-sm mt-1">Collins Word of the Year 2025</div>
+          </a>
+          <a 
+            href="https://simonwillison.net/2025/Mar/19/vibe-coding/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Deep Dive</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Simon Willison Analysis</div>
+            <div className="text-slate-500 text-sm mt-1">Nuanced take on vibe coding</div>
+          </a>
+          <a 
+            href="https://www.keyvalue.systems/blog/vibe-coding-ai-trend/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
+          >
+            <div className="text-sm text-saffron-400 mb-1">Industry Trend</div>
+            <div className="text-white font-medium group-hover:text-saffron-400 transition">Vibe Coding in 2025</div>
+            <div className="text-slate-500 text-sm mt-1">Why everyone is talking about it</div>
+          </a>
+        </div>
       </div>
     </div>
   )
