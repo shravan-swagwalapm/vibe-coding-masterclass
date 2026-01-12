@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Code2, Rocket, Sparkles, Clock, BookOpen, ChevronDown, Quote, Star } from 'lucide-react'
+import { ArrowRight, Code2, Rocket, Sparkles, Clock, BookOpen, ChevronDown, Star, ExternalLink } from 'lucide-react'
 
 export default function Home() {
   const modules = [
@@ -41,22 +41,26 @@ export default function Home() {
     {
       quote: "I cracked a PM role in TATA 1mg. There were 3000 applicants and across 5 rounds I got lucky. Extremely grateful!",
       name: "Rethink Alumni",
-      role: "PM at TATA 1mg"
+      role: "PM at TATA 1mg",
+      linkedin: null
     },
     {
       quote: "Got the AI PM role at IBM — thanks to your sessions. The Productathon helped me build confidently. Showcased that AI product in interviews.",
       name: "Rethink Alumni", 
-      role: "AI PM at IBM"
+      role: "AI PM at IBM",
+      linkedin: null
     },
     {
       quote: "I got selected in ServiceNow for the role of Senior Product Manager. This is a dream job for me!",
       name: "Rethink Alumni",
-      role: "Senior PM at ServiceNow"
+      role: "Senior PM at ServiceNow",
+      linkedin: null
     },
     {
       quote: "Got offer as Senior Product Manager at Mahindra & Mahindra for their EV division. Thank you for all the support!",
       name: "Rethink Alumni",
-      role: "Senior PM at Mahindra EV"
+      role: "Senior PM at Mahindra EV",
+      linkedin: null
     }
   ]
 
@@ -88,20 +92,20 @@ export default function Home() {
   ]
 
   return (
-    <div className="min-h-screen bg-midnight-950">
+    <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight-950/80 backdrop-blur-xl border-b border-slate-800/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/90 backdrop-blur-xl border-b border-blue-900/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="font-display font-bold text-xl text-white">
             Vibe Coding
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="#modules" className="text-slate-400 hover:text-white transition text-sm">Modules</Link>
-            <Link href="#testimonials" className="text-slate-400 hover:text-white transition text-sm">Reviews</Link>
-            <Link href="#faq" className="text-slate-400 hover:text-white transition text-sm">FAQ</Link>
+            <Link href="#modules" className="text-blue-200/70 hover:text-white transition text-sm">Modules</Link>
+            <Link href="#testimonials" className="text-blue-200/70 hover:text-white transition text-sm">Reviews</Link>
+            <Link href="#faq" className="text-blue-200/70 hover:text-white transition text-sm">FAQ</Link>
             <Link 
               href="/module-0/prerequisites"
-              className="bg-saffron-500 hover:bg-saffron-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition"
+              className="bg-saffron-500 hover:bg-saffron-600 text-white px-4 py-2 rounded-full text-sm font-medium transition"
             >
               Start Learning
             </Link>
@@ -109,12 +113,22 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-saffron-500/10 border border-saffron-500/20 rounded-full px-4 py-2 mb-8">
+      {/* Hero Section - Blue Gradient Background */}
+      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-[#0a1628] via-[#0f2847] to-[#1a3a5c] overflow-hidden">
+        {/* Dot pattern overlay */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }} />
+        
+        {/* Glow effects */}
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-2 mb-8">
             <Sparkles className="w-4 h-4 text-saffron-400" />
-            <span className="text-saffron-400 text-sm font-medium">Free Course • No Coding Required</span>
+            <span className="text-white/90 text-sm font-medium">Free Course • No Coding Required</span>
           </div>
           
           <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -122,14 +136,14 @@ export default function Home() {
             <span className="text-saffron-400">Ship Apps Without Code</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-blue-100/80 mb-10 max-w-2xl mx-auto leading-relaxed">
             Master Claude Code in a weekend. Go from zero to deploying real applications — no programming experience needed. Built for Product Managers by a PM.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <Link 
               href="/module-0/prerequisites"
-              className="w-full sm:w-auto bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition flex items-center justify-center gap-2 shadow-lg shadow-saffron-500/25"
             >
               Start Free Course <ArrowRight className="w-5 h-5" />
             </Link>
@@ -137,7 +151,7 @@ export default function Home() {
               href="https://youtube.com/@theswagwalapm"
               target="_blank"
               rel="noopener noreferrer" 
-              className="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition"
+              className="w-full sm:w-auto bg-white/10 backdrop-blur border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition"
             >
               Watch on YouTube
             </a>
@@ -150,62 +164,62 @@ export default function Home() {
                 <Clock className="w-6 h-6 text-saffron-400" />
                 3+
               </div>
-              <div className="text-slate-400 text-sm">Hours Content</div>
+              <div className="text-blue-200/60 text-sm">Hours Content</div>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-1 text-3xl font-bold text-white mb-1">
                 <BookOpen className="w-6 h-6 text-saffron-400" />
                 11
               </div>
-              <div className="text-slate-400 text-sm">Lessons</div>
+              <div className="text-blue-200/60 text-sm">Lessons</div>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-1 text-3xl font-bold text-white mb-1">
                 <span className="text-saffron-400">∞</span>
               </div>
-              <div className="text-slate-400 text-sm">Apps to Build</div>
+              <div className="text-blue-200/60 text-sm">Apps to Build</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-16 px-6 bg-midnight-900/50">
+      <section className="py-16 px-6 bg-[#0a1628]">
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-          <div className="bg-midnight-900/80 border border-slate-800 rounded-2xl p-8">
+          <div className="bg-[#0f2847]/80 border border-blue-900/30 rounded-2xl p-8">
             <Code2 className="w-10 h-10 text-saffron-400 mb-4" />
             <h3 className="font-display text-xl font-semibold text-white mb-3">No Coding Required</h3>
-            <p className="text-slate-400">If you can describe what you want, Claude builds it. Simple.</p>
+            <p className="text-blue-200/60">If you can describe what you want, Claude builds it. Simple.</p>
           </div>
-          <div className="bg-midnight-900/80 border border-slate-800 rounded-2xl p-8">
+          <div className="bg-[#0f2847]/80 border border-blue-900/30 rounded-2xl p-8">
             <Rocket className="w-10 h-10 text-saffron-400 mb-4" />
             <h3 className="font-display text-xl font-semibold text-white mb-3">Ship in Hours</h3>
-            <p className="text-slate-400">From idea to deployed app in a single session. Real URLs, real users.</p>
+            <p className="text-blue-200/60">From idea to deployed app in a single session. Real URLs, real users.</p>
           </div>
-          <div className="bg-midnight-900/80 border border-slate-800 rounded-2xl p-8">
+          <div className="bg-[#0f2847]/80 border border-blue-900/30 rounded-2xl p-8">
             <Sparkles className="w-10 h-10 text-saffron-400 mb-4" />
             <h3 className="font-display text-xl font-semibold text-white mb-3">PM-First Approach</h3>
-            <p className="text-slate-400">Built by a PM for PMs. Focus on product thinking, not syntax.</p>
+            <p className="text-blue-200/60">Built by a PM for PMs. Focus on product thinking, not syntax.</p>
           </div>
         </div>
       </section>
 
       {/* Course Modules */}
-      <section id="modules" className="py-20 px-6">
+      <section id="modules" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-3xl font-bold text-white text-center mb-4">Course Modules</h2>
-          <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">From setup to shipping — everything you need to become a vibe coder</p>
+          <p className="text-blue-200/60 text-center mb-12 max-w-xl mx-auto">From setup to shipping — everything you need to become a vibe coder</p>
 
           <div className="space-y-8">
             {modules.map((module) => (
-              <div key={module.number} className="bg-midnight-900/50 border border-slate-800 rounded-2xl p-8">
+              <div key={module.number} className="bg-[#0f2847]/50 border border-blue-900/30 rounded-2xl p-8">
                 <div className="flex items-start gap-6 mb-6">
                   <div className="bg-saffron-500/20 text-saffron-400 w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-xl shrink-0">
                     {module.number}
                   </div>
                   <div>
                     <h3 className="font-display text-xl font-semibold text-white mb-2">{module.title}</h3>
-                    <p className="text-slate-400">{module.description}</p>
+                    <p className="text-blue-200/60">{module.description}</p>
                   </div>
                 </div>
                 <div className="space-y-3 ml-0 md:ml-18">
@@ -213,13 +227,13 @@ export default function Home() {
                     <Link
                       key={lesson.id}
                       href={lesson.href}
-                      className="flex items-center justify-between bg-midnight-950/50 hover:bg-midnight-950 border border-slate-800 hover:border-saffron-500/30 rounded-xl px-5 py-4 transition group"
+                      className="flex items-center justify-between bg-[#0a1628]/50 hover:bg-[#0a1628] border border-blue-900/30 hover:border-saffron-500/30 rounded-xl px-5 py-4 transition group"
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-saffron-400/70 text-sm font-medium">{lesson.id}</span>
-                        <span className="text-slate-200 group-hover:text-white transition">{lesson.title}</span>
+                        <span className="text-blue-100 group-hover:text-white transition">{lesson.title}</span>
                       </div>
-                      <span className="text-slate-500 text-sm">{lesson.duration}</span>
+                      <span className="text-blue-300/40 text-sm">{lesson.duration}</span>
                     </Link>
                   ))}
                 </div>
@@ -230,23 +244,35 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 px-6 bg-midnight-900/50">
+      <section id="testimonials" className="py-20 px-6 bg-[#0f2847]/30">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-display text-3xl font-bold text-white text-center mb-4">From the Rethink Community</h2>
-          <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">500+ PMs trained. Here is what they achieved.</p>
+          <p className="text-blue-200/60 text-center mb-12 max-w-xl mx-auto">500+ PMs trained. Here is what they achieved.</p>
 
           <div className="grid md:grid-cols-2 gap-6">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-midnight-900/80 border border-slate-800 rounded-2xl p-6">
+              <div key={index} className="bg-[#0a1628]/80 border border-blue-900/30 rounded-2xl p-6">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 text-saffron-400 fill-saffron-400" />
                   ))}
                 </div>
-                <p className="text-slate-300 mb-4 leading-relaxed">&quot;{testimonial.quote}&quot;</p>
-                <div>
-                  <div className="text-white font-medium">{testimonial.name}</div>
-                  <div className="text-slate-500 text-sm">{testimonial.role}</div>
+                <p className="text-blue-100/80 mb-4 leading-relaxed">&quot;{testimonial.quote}&quot;</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-white font-medium">{testimonial.name}</div>
+                    <div className="text-blue-300/50 text-sm">{testimonial.role}</div>
+                  </div>
+                  {testimonial.linkedin && (
+                    <a 
+                      href={testimonial.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-300 transition"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -265,22 +291,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="py-20 px-6">
+      {/* About - Updated */}
+      <section id="about" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-midnight-900 to-midnight-800 border border-slate-800 rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10">
+          <div className="bg-gradient-to-br from-[#0f2847] to-[#0a1628] border border-blue-900/30 rounded-3xl p-10 flex flex-col md:flex-row items-start gap-10">
             <div className="text-6xl shrink-0">🧑‍💻</div>
             <div>
-              <h2 className="font-display text-2xl font-bold text-white mb-4">Built by Shravan</h2>
-              <p className="text-slate-300 mb-6 leading-relaxed">
-                I am <strong>The Swag Wala PM</strong> — 8+ years in product management at companies like Flipkart, BYJU&apos;S, and BlackBuck. 
-                Trained 500+ PMs through Rethink Systems. Now I teach PMs how to build with AI. 
-                This course is my attempt to democratize vibe coding for everyone who thinks in products, not code.
-              </p>
-              <div className="flex gap-4">
-                <a href="https://youtube.com/@theswagwalapm" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:text-saffron-300 transition">YouTube</a>
-                <a href="https://www.linkedin.com/in/shravantickoo/" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:text-saffron-300 transition">LinkedIn</a>
-                <a href="https://rethinksystems.in" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:text-saffron-300 transition">Rethink Systems</a>
+              <h2 className="font-display text-2xl font-bold text-white mb-6">About Shravan</h2>
+              <ul className="space-y-4 text-blue-100/80 mb-8">
+                <li className="flex items-start gap-2">
+                  <span className="text-saffron-400 mt-1">•</span>
+                  <span>10+ years building products across logistics, edtech, and consumer tech.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-saffron-400 mt-1">•</span>
+                  <span>A globally recognised Product Management educator and leader, also known as <strong className="text-white">Swagwalapm</strong> for making product thinking practical, grounded, and human.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-saffron-400 mt-1">•</span>
+                  <span>Guest lecturer at IIMs, IITs, ISB, and NTU across the world.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-saffron-400 mt-1">•</span>
+                  <span>Has mentored 10,000+ PMs, many of whom now build and lead products at Microsoft, Meta, Google, and Amazon.</span>
+                </li>
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <a 
+                  href="https://youtube.com/@theswagwalapm" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 bg-saffron-500/20 hover:bg-saffron-500/30 text-saffron-400 px-5 py-2.5 rounded-full font-medium transition"
+                >
+                  YouTube
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/shravantickoo/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 px-5 py-2.5 rounded-full font-medium transition"
+                >
+                  LinkedIn
+                </a>
+                <a 
+                  href="https://rethinksystems.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-full font-medium transition"
+                >
+                  Rethink Systems
+                </a>
               </div>
             </div>
           </div>
@@ -288,19 +348,19 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-20 px-6 bg-midnight-900/50">
+      <section id="faq" className="py-20 px-6 bg-[#0f2847]/30">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-display text-3xl font-bold text-white text-center mb-4">Frequently Asked Questions</h2>
-          <p className="text-slate-400 text-center mb-12">Everything you need to know before starting</p>
+          <p className="text-blue-200/60 text-center mb-12">Everything you need to know before starting</p>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <details key={index} className="bg-midnight-900/80 border border-slate-800 rounded-xl group">
+              <details key={index} className="bg-[#0a1628]/80 border border-blue-900/30 rounded-xl group">
                 <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
                   <span className="text-white font-medium pr-4">{faq.question}</span>
-                  <ChevronDown className="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-blue-300/50 group-open:rotate-180 transition-transform shrink-0" />
                 </summary>
-                <div className="px-6 pb-5 text-slate-400 leading-relaxed">
+                <div className="px-6 pb-5 text-blue-200/60 leading-relaxed">
                   {faq.answer}
                 </div>
               </details>
@@ -310,15 +370,15 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="font-display text-3xl font-bold text-white mb-4">Ready to Start Vibe Coding?</h2>
-          <p className="text-slate-400 mb-8">
+          <p className="text-blue-200/60 mb-8">
             Join thousands of PMs learning to build with AI. It is free, it is fun, and you will ship your first app this weekend.
           </p>
           <Link 
             href="/module-0/prerequisites"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-saffron-500 to-saffron-600 hover:from-saffron-600 hover:to-saffron-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition shadow-lg shadow-saffron-500/25"
           >
             Start Module 0 <ArrowRight className="w-5 h-5" />
           </Link>
@@ -326,10 +386,10 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-10 px-6">
+      <footer className="border-t border-blue-900/30 py-10 px-6 bg-[#0a1628]">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-display font-bold text-white">Vibe Coding Masterclass</div>
-          <div className="text-slate-500 text-sm">
+          <div className="text-blue-300/50 text-sm">
             © 2025 Shravan (<a href="https://www.linkedin.com/in/shravantickoo/" target="_blank" rel="noopener noreferrer" className="hover:text-saffron-400 transition">The Swag Wala PM</a>). Made with Claude Code, obviously. 🧡
           </div>
         </div>
