@@ -1,6 +1,168 @@
+'use client'
+
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+
+// Code Rain Component
+function CodeRain() {
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+
+    // Characters for the rain
+    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]=/\\|;:,.claude()=>{}const let var function async await import export'
+    const charArray = chars.split('')
+
+    const fontSize = 14
+    const columns = Math.floor(canvas.width / fontSize)
+    
+    // Array to track y position of each column
+    const drops = Array(columns).fill(1)
+
+    const draw = () => {
+      // Semi-transparent black to create fade effect
+      ctx.fillStyle = 'rgba(5, 10, 21, 0.05)'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      // Set text style
+      ctx.fillStyle = '#3b82f620'
+      ctx.font = `${fontSize}px monospace`
+
+      // Draw characters
+      for (let i = 0; i < drops.length; i++) {
+        const char = charArray[Math.floor(Math.random() * charArray.length)]
+        const x = i * fontSize
+        const y = drops[i] * fontSize
+
+        // Gradient effect - brighter at the head
+        if (Math.random() > 0.98) {
+          ctx.fillStyle = '#f9731630'
+        } else {
+          ctx.fillStyle = '#3b82f615'
+        }
+
+        ctx.fillText(char, x, y)
+
+        // Reset drop to top randomly
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0
+        }
+        drops[i]++
+      }
+    }
+
+    const interval = setInterval(draw, 50)
+
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('resize', resizeCanvas)
+    }
+  }, [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none"
+      style={{ opacity: 0.6 }}
+    />
+  )
+}
+
+// 3D ASCII Text Component
+function ASCII3DText() {
+  return (
+    <div className="relative">
+      {/* Shadow layers for 3D depth */}
+      <div className="absolute inset-0 transform translate-x-2 translate-y-2 opacity-20">
+        <pre className="font-mono text-[8px] sm:text-[10px] md:text-sm lg:text-base xl:text-lg leading-none select-none text-blue-900 whitespace-pre">
+{`██╗   ██╗██╗██████╗ ███████╗
+██║   ██║██║██╔══██╗██╔════╝
+██║   ██║██║██████╔╝█████╗  
+╚██╗ ██╔╝██║██╔══██╗██╔══╝  
+ ╚████╔╝ ██║██████╔╝███████╗
+  ╚═══╝  ╚═╝╚═════╝ ╚══════╝`}</pre>
+      </div>
+      <div className="absolute inset-0 transform translate-x-1 translate-y-1 opacity-40">
+        <pre className="font-mono text-[8px] sm:text-[10px] md:text-sm lg:text-base xl:text-lg leading-none select-none text-orange-700 whitespace-pre">
+{`██╗   ██╗██╗██████╗ ███████╗
+██║   ██║██║██╔══██╗██╔════╝
+██║   ██║██║██████╔╝█████╗  
+╚██╗ ██╔╝██║██╔══██╗██╔══╝  
+ ╚████╔╝ ██║██████╔╝███████╗
+  ╚═══╝  ╚═╝╚═════╝ ╚══════╝`}</pre>
+      </div>
+      {/* Main text with gradient */}
+      <pre 
+        className="font-mono text-[8px] sm:text-[10px] md:text-sm lg:text-base xl:text-lg leading-none select-none whitespace-pre relative z-10"
+        style={{ 
+          background: 'linear-gradient(180deg, #fbbf24 0%, #f97316 40%, #ea580c 70%, #c2410c 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          filter: 'drop-shadow(0 0 20px rgba(249, 115, 22, 0.5))'
+        }}
+      >
+{`██╗   ██╗██╗██████╗ ███████╗
+██║   ██║██║██╔══██╗██╔════╝
+██║   ██║██║██████╔╝█████╗  
+╚██╗ ██╔╝██║██╔══██╗██╔══╝  
+ ╚████╔╝ ██║██████╔╝███████╗
+  ╚═══╝  ╚═╝╚═════╝ ╚══════╝`}</pre>
+
+      {/* CODING text with 3D effect */}
+      <div className="relative mt-2">
+        <div className="absolute inset-0 transform translate-x-2 translate-y-2 opacity-20">
+          <pre className="font-mono text-[6px] sm:text-[8px] md:text-xs lg:text-sm xl:text-base leading-none select-none text-blue-900 whitespace-pre">
+{` ██████╗ ██████╗ ██████╗ ██╗███╗   ██╗ ██████╗ 
+██╔════╝██╔═══██╗██╔══██╗██║████╗  ██║██╔════╝ 
+██║     ██║   ██║██║  ██║██║██╔██╗ ██║██║  ███╗
+██║     ██║   ██║██║  ██║██║██║╚██╗██║██║   ██║
+╚██████╗╚██████╔╝██████╔╝██║██║ ╚████║╚██████╔╝
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ `}</pre>
+        </div>
+        <div className="absolute inset-0 transform translate-x-1 translate-y-1 opacity-40">
+          <pre className="font-mono text-[6px] sm:text-[8px] md:text-xs lg:text-sm xl:text-base leading-none select-none text-cyan-700 whitespace-pre">
+{` ██████╗ ██████╗ ██████╗ ██╗███╗   ██╗ ██████╗ 
+██╔════╝██╔═══██╗██╔══██╗██║████╗  ██║██╔════╝ 
+██║     ██║   ██║██║  ██║██║██╔██╗ ██║██║  ███╗
+██║     ██║   ██║██║  ██║██║██║╚██╗██║██║   ██║
+╚██████╗╚██████╔╝██████╔╝██║██║ ╚████║╚██████╔╝
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ `}</pre>
+        </div>
+        <pre 
+          className="font-mono text-[6px] sm:text-[8px] md:text-xs lg:text-sm xl:text-base leading-none select-none whitespace-pre relative z-10"
+          style={{ 
+            background: 'linear-gradient(180deg, #67e8f9 0%, #22d3ee 30%, #06b6d4 50%, #0891b2 70%, #0e7490 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            filter: 'drop-shadow(0 0 20px rgba(6, 182, 212, 0.5))'
+          }}
+        >
+{` ██████╗ ██████╗ ██████╗ ██╗███╗   ██╗ ██████╗ 
+██╔════╝██╔═══██╗██╔══██╗██║████╗  ██║██╔════╝ 
+██║     ██║   ██║██║  ██║██║██╔██╗ ██║██║  ███╗
+██║     ██║   ██║██║  ██║██║██║╚██╗██║██║   ██║
+╚██████╗╚██████╔╝██████╔╝██║██║ ╚████║╚██████╔╝
+ ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ `}</pre>
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   const modules = [
@@ -120,72 +282,102 @@ export default function Home() {
     <div className="min-h-screen bg-[#050a15]">
       <Header />
 
-      {/* Hero Section - Exact Rethink Style */}
-      <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 rs-gradient-bg" />
+      {/* Hero Section - 3D ASCII with Code Rain */}
+      <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#050a15] via-[#0a1628] to-[#0d1f3c]" />
         
-        {/* Dot Pattern Overlay */}
-        <div className="absolute inset-0 rs-dot-pattern" />
+        {/* Code Rain Canvas */}
+        <CodeRain />
         
-        {/* Glow Effects */}
-        <div className="rs-glow-blue w-[600px] h-[600px] top-0 right-0" />
-        <div className="rs-glow-blue w-[400px] h-[400px] bottom-0 left-1/4" />
-        <div className="rs-glow-blue w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        {/* Radial glow effects */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-orange-500/10 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[150px]" />
+        
+        {/* Grid overlay */}
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-          <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="rs-badge mb-8">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-              Free Course • No Coding Required
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
+          {/* 3D ASCII Art */}
+          <div className="mb-8 flex justify-center transform hover:scale-105 transition-transform duration-500">
+            <ASCII3DText />
+          </div>
+
+          {/* Tagline */}
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight">
+            Ship Apps <span className="text-white/40">Without Writing Code</span>
+          </h2>
+
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rs-badge mb-8">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            Free Course • No Coding Required
+          </div>
+
+          {/* Description */}
+          <p className="rs-text-body max-w-2xl mx-auto mb-10 text-base sm:text-lg">
+            Master Claude Code in a weekend. Go from zero to deploying real applications — no programming experience needed. Built for Product Managers by a PM.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+            <Link 
+              href="/module-0/prerequisites" 
+              className="group relative inline-flex items-center gap-2 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:scale-105"
+            >
+              <span className="relative z-10">Start Free Course</span>
+              <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </Link>
+            <a 
+              href="https://youtube.com/@theswagwalapm" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group inline-flex items-center gap-2 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 bg-white/5 text-white font-medium rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            >
+              <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              Watch on YouTube
+            </a>
+          </div>
+
+          {/* Stats with glow */}
+          <div className="inline-flex items-center gap-6 sm:gap-10 bg-white/5 backdrop-blur-sm rounded-2xl px-6 sm:px-10 py-4 sm:py-6 border border-white/10">
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">3+</div>
+              <div className="text-[10px] sm:text-xs text-white/40 mt-1">Hours Content</div>
             </div>
-
-            {/* Heading - Rethink Style */}
-            <h1 className="rs-heading-xl text-white mb-2">
-              <span className="text-white/80">Learn</span> Vibe Coding
-            </h1>
-            <h2 className="rs-heading-xl text-white/60 mb-8">
-              Ship Apps Without Code
-            </h2>
-
-            {/* Description */}
-            <p className="rs-text-body max-w-xl mb-10">
-              Master Claude Code in a weekend. Go from zero to deploying real applications — no programming experience needed. Built for Product Managers by a PM.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 mb-12">
-              <Link href="/module-0/prerequisites" className="rs-btn-orange inline-flex items-center gap-2">
-                Start Free Course
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <a href="https://youtube.com/@theswagwalapm" target="_blank" rel="noopener noreferrer" className="rs-btn-secondary inline-flex items-center gap-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-                Watch on YouTube
-              </a>
+            <div className="w-px h-10 sm:h-12 bg-white/10"></div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">11</div>
+              <div className="text-[10px] sm:text-xs text-white/40 mt-1">Lessons</div>
             </div>
+            <div className="w-px h-10 sm:h-12 bg-white/10"></div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">∞</div>
+              <div className="text-[10px] sm:text-xs text-white/40 mt-1">Apps to Build</div>
+            </div>
+          </div>
 
-            {/* Stats */}
-            <div className="flex items-center gap-8">
-              <div>
-                <div className="text-2xl font-bold text-white">3+</div>
-                <div className="text-xs text-white/40">Hours Content</div>
-              </div>
-              <div className="w-px h-10 bg-white/10"></div>
-              <div>
-                <div className="text-2xl font-bold text-white">11</div>
-                <div className="text-xs text-white/40">Lessons</div>
-              </div>
-              <div className="w-px h-10 bg-white/10"></div>
-              <div>
-                <div className="text-2xl font-bold text-white">∞</div>
-                <div className="text-xs text-white/40">Apps to Build</div>
-              </div>
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+            <div className="flex flex-col items-center gap-2 animate-bounce">
+              <span className="text-white/30 text-xs">Scroll</span>
+              <svg className="w-5 h-5 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
             </div>
           </div>
         </div>
@@ -225,8 +417,8 @@ export default function Home() {
                 description: "Built by a PM for PMs. Focus on product thinking, not syntax."
               }
             ].map((feature, i) => (
-              <div key={i} className="rs-glass-card rounded-2xl p-8 hover:border-blue-500/20 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6">
+              <div key={i} className="rs-glass-card rounded-2xl p-8 hover:border-blue-500/20 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-3">{feature.title}</h3>
@@ -279,7 +471,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section - Masonry Style */}
+      {/* Testimonials Section */}
       <section id="testimonials" className="relative py-24 bg-[#050a15]">
         <div className="absolute inset-0 rs-dot-pattern opacity-50" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -288,33 +480,21 @@ export default function Home() {
             <p className="rs-text-body">Read what our students have to say about us</p>
           </div>
 
-          {/* See All Button */}
           <div className="flex justify-end mb-8">
-            <a 
-              href="https://rethinksystems.in" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="rs-btn-primary"
-            >
+            <a href="https://rethinksystems.in" target="_blank" rel="noopener noreferrer" className="rs-btn-primary">
               See All
             </a>
           </div>
 
-          {/* Masonry Grid */}
           <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="rs-testimonial-card break-inside-avoid mb-6">
-                {/* Tag */}
                 <div className="mb-4">
                   <span className={testimonial.tag === 'Jobs Cracked' ? 'rs-tag-jobs' : 'rs-tag-comments'}>
                     {testimonial.tag}
                   </span>
                 </div>
-                
-                {/* Quote */}
                 <p className="text-gray-700 text-[14px] leading-relaxed mb-6">{testimonial.quote}</p>
-                
-                {/* Author */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-600 font-semibold text-sm">
@@ -326,12 +506,7 @@ export default function Home() {
                     </div>
                   </div>
                   {testimonial.linkedin && (
-                    <a 
-                      href={testimonial.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-8 h-8 bg-[#0077b5] rounded-lg flex items-center justify-center text-white hover:bg-[#005885] transition"
-                    >
+                    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-[#0077b5] rounded-lg flex items-center justify-center text-white hover:bg-[#005885] transition">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                       </svg>
@@ -343,19 +518,14 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <a 
-              href="https://rethinksystems.in" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="rs-btn-primary"
-            >
+            <a href="https://rethinksystems.in" target="_blank" rel="noopener noreferrer" className="rs-btn-primary">
               Read More
             </a>
           </div>
         </div>
       </section>
 
-      {/* About Educator Section */}
+      {/* About Section */}
       <section id="about" className="relative py-24 bg-[#050a15]">
         <div className="absolute inset-0 rs-dot-pattern opacity-50" />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
@@ -375,22 +545,15 @@ export default function Home() {
               ))}
             </div>
             <div className="flex flex-wrap gap-4">
-              <a href="https://youtube.com/@theswagwalapm" target="_blank" rel="noopener noreferrer" 
-                className="inline-flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 px-6 py-3 rounded-full font-medium transition border border-red-500/20 text-sm">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
+              <a href="https://youtube.com/@theswagwalapm" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 px-6 py-3 rounded-full font-medium transition border border-red-500/20 text-sm">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 YouTube
               </a>
-              <a href="https://www.linkedin.com/in/shravantickoo/" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#0077b5]/10 hover:bg-[#0077b5]/20 text-[#0077b5] px-6 py-3 rounded-full font-medium transition border border-[#0077b5]/20 text-sm">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+              <a href="https://www.linkedin.com/in/shravantickoo/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#0077b5]/10 hover:bg-[#0077b5]/20 text-[#0077b5] px-6 py-3 rounded-full font-medium transition border border-[#0077b5]/20 text-sm">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 LinkedIn
               </a>
-              <a href="https://rethinksystems.in" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full font-medium transition border border-white/10 text-sm">
+              <a href="https://rethinksystems.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full font-medium transition border border-white/10 text-sm">
                 Rethink Systems
               </a>
             </div>
