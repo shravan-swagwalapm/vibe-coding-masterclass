@@ -338,13 +338,17 @@ export default function Home() {
             Ship Apps <span className="text-white/50">Without Writing Code</span>
           </h2>
 
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 mb-10">
+          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 mb-4">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
             </span>
             <span className="text-white/90 text-sm font-medium">Free Course • No Coding Required</span>
           </div>
+
+          <p className="text-white/60 text-sm mb-10">
+            by <span className="text-orange-400 font-medium">Shravan Tickoo</span> aka <span className="text-blue-400 font-medium">Swag Wala PM</span>
+          </p>
 
           <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed font-light">
             Master Claude Code in a weekend. Go from zero to deploying real applications — no programming experience needed. Built for Product Managers by a PM.
@@ -361,7 +365,7 @@ export default function Home() {
               </svg>
             </Link>
             <a 
-              href="https://youtube.com/@theswagwalapm" 
+              href="https://www.youtube.com/@TheSwagWalaPM" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="group inline-flex items-center gap-3 text-lg sm:text-xl px-8 sm:px-10 py-4 sm:py-5 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/15 transition-all duration-300"
@@ -369,11 +373,11 @@ export default function Home() {
               <svg className="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
-              Watch on YouTube
+              Check Swag Wala PM YT
             </a>
           </div>
 
-          <div className="inline-flex items-center gap-8 sm:gap-12 bg-white/10 backdrop-blur-sm rounded-2xl px-8 sm:px-12 py-6 sm:py-8 border border-white/15">
+          <div className="inline-flex items-center gap-8 sm:gap-12 bg-white/10 backdrop-blur-sm rounded-2xl px-8 sm:px-12 py-6 sm:py-8 border border-white/15 mb-20">
             <div className="text-center">
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">{totalHours}+</div>
               <div className="text-sm sm:text-base text-white/60 mt-2">Hours Content</div>
@@ -390,13 +394,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-            <div className="flex flex-col items-center gap-2 animate-bounce">
-              <span className="text-white/50 text-sm font-medium">Scroll</span>
-              <svg className="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </div>
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-white/50 text-sm font-medium">Scroll</span>
+            <svg className="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </div>
       </section>

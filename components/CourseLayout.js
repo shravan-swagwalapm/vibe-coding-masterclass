@@ -109,10 +109,10 @@ const navigation = [
 ]
 
 const socials = [
-  { icon: Youtube, href: "https://youtube.com/@theswagwalapm", label: "YouTube" },
+  { icon: Youtube, href: "https://www.youtube.com/@TheSwagWalaPM", label: "YouTube" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/shravantickoo/", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/shravantickoo23", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com/shravantickoo", label: "Instagram" },
+  { icon: Twitter, href: "https://x.com/shravantickoo23", label: "X" },
+  { icon: Instagram, href: "https://www.instagram.com/swagwalapm/", label: "Instagram" },
 ]
 
 const allLessons = navigation.flatMap(section => section.items)
@@ -287,7 +287,7 @@ export default function CourseLayout({ children }) {
 
       {/* Main Content */}
       <main className="lg:ml-72 pt-[68px] min-h-screen relative z-10">
-        <div className="px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12">
+        <div className="w-full max-w-6xl px-8 lg:px-12 py-12">
           <article className="w-full">
             {children}
           </article>
@@ -323,8 +323,8 @@ export default function CourseLayout({ children }) {
         </div>
 
         {/* Footer */}
-        <footer className="border-t border-white/5 py-8 px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 mt-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <footer className="border-t border-white/5 py-8 px-8 lg:px-12 mt-12">
+          <div className="max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4">
             <Logo />
             <div className="flex items-center gap-4">
               {socials.map((social, i) => (
