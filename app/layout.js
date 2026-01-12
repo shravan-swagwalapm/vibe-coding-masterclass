@@ -1,24 +1,24 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Vibe Coding Masterclass | SwagWala PM',
-  description: 'Learn Claude Code & Vibe Coding from scratch. No coding experience required. Build real apps with AI.',
-  keywords: ['Claude Code', 'Vibe Coding', 'AI Development', 'No Code', 'Product Management'],
-  authors: [{ name: 'Shravan (The Swag Wala PM)' }],
+  title: 'Vibe Coding Masterclass | Learn to Ship Apps Without Code',
+  description: 'Master Claude Code in a weekend. Go from zero to deploying real applications — no programming experience needed. Built for Product Managers by a PM.',
+  keywords: 'vibe coding, claude code, product management, no code, AI coding, PM course',
   openGraph: {
-    title: 'Vibe Coding Masterclass | SwagWala PM',
-    description: 'Learn Claude Code & Vibe Coding from scratch. No coding experience required.',
+    title: 'Vibe Coding Masterclass',
+    description: 'Ship Apps Without Code - Learn Claude Code in a Weekend',
     type: 'website',
   },
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="bg-midnight-950 text-slate-200 antialiased">
+      <body className="antialiased">
         {children}
       </body>
     </html>

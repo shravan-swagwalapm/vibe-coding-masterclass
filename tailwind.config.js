@@ -7,6 +7,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        rethink: {
+          bg: '#030712',
+          card: '#0a1628',
+          border: '#1e3a5f',
+          accent: '#3b82f6',
+        },
         saffron: {
           50: '#fff7ed',
           100: '#ffedd5',
@@ -34,18 +40,17 @@ module.exports = {
         }
       },
       fontFamily: {
-        display: ['Clash Display', 'system-ui', 'sans-serif'],
-        body: ['Satoshi', 'system-ui', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
       typography: {
         DEFAULT: {
           css: {
             maxWidth: 'none',
-            color: '#cbd5e1',
+            color: '#94a3b8',
             a: {
-              color: '#fb923c',
+              color: '#3b82f6',
               '&:hover': {
-                color: '#f97316',
+                color: '#60a5fa',
               },
             },
             h1: { color: '#f8fafc' },
@@ -54,7 +59,7 @@ module.exports = {
             h4: { color: '#f8fafc' },
             strong: { color: '#f8fafc' },
             code: { 
-              color: '#fb923c',
+              color: '#3b82f6',
               backgroundColor: '#1e293b',
               padding: '0.25rem 0.5rem',
               borderRadius: '0.25rem',
@@ -62,8 +67,8 @@ module.exports = {
             'code::before': { content: '""' },
             'code::after': { content: '""' },
             pre: {
-              backgroundColor: '#0f172a',
-              border: '1px solid #334155',
+              backgroundColor: '#0a1628',
+              border: '1px solid #1e3a5f',
             },
           },
         },

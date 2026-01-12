@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { 
-  Code2, 
   ChevronRight, 
   ChevronDown, 
   Home,
@@ -15,9 +14,28 @@ import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
-  Circle
+  Circle,
+  Youtube,
+  Linkedin,
+  Twitter,
+  Instagram
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
+
+// Logo Component - Same as homepage
+const Logo = ({ className = "" }) => (
+  <Link href="/" className={`flex items-center gap-2 ${className}`}>
+    <div className="relative">
+      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+        <Terminal className="w-4 h-4 text-white" />
+      </div>
+    </div>
+    <div className="flex flex-col">
+      <span className="font-semibold text-white text-sm leading-tight">Vibe Coding</span>
+      <span className="text-[10px] text-blue-400/60 tracking-wider">M A S T E R C L A S S</span>
+    </div>
+  </Link>
+)
 
 const navigation = [
   {
@@ -51,7 +69,13 @@ const navigation = [
   },
 ]
 
-// Get all lessons in order for prev/next navigation
+const socials = [
+  { icon: Youtube, href: "https://youtube.com/@theswagwalapm", label: "YouTube" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/shravantickoo/", label: "LinkedIn" },
+  { icon: Twitter, href: "https://twitter.com/shaborkar", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com/shravantickoo", label: "Instagram" },
+]
+
 const allLessons = navigation.flatMap(section => section.items)
 
 export default function CourseLayout({ children }) {
@@ -60,7 +84,6 @@ export default function CourseLayout({ children }) {
   const [expandedSections, setExpandedSections] = useState([0, 1, 2])
   const [completedLessons, setCompletedLessons] = useState([])
 
-  // Load completed lessons from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('completedLessons')
     if (saved) {
@@ -68,7 +91,6 @@ export default function CourseLayout({ children }) {
     }
   }, [])
 
-  // Mark current lesson as completed when visiting
   useEffect(() => {
     if (pathname && !completedLessons.includes(pathname)) {
       const updated = [...completedLessons, pathname]
@@ -85,57 +107,55 @@ export default function CourseLayout({ children }) {
     )
   }
 
-  // Find current, previous, and next lessons
   const currentIndex = allLessons.findIndex(lesson => lesson.href === pathname)
   const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null
   const nextLesson = currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null
 
-  // Calculate progress
   const totalLessons = allLessons.length
   const completedCount = completedLessons.filter(l => allLessons.some(al => al.href === l)).length
   const progressPercent = Math.round((completedCount / totalLessons) * 100)
 
   return (
-    <div className="min-h-screen bg-midnight-950">
+    <div className="min-h-screen bg-[#030712]">
+      {/* Dot Pattern Background */}
+      <div className="fixed inset-0 pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 1px, transparent 1px)',
+        backgroundSize: '24px 24px'
+      }} />
+
       {/* Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-slate-800">
+      <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-gray-900">
         <div 
-          className="h-full bg-gradient-to-r from-saffron-500 to-saffron-400 transition-all duration-500"
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-500"
           style={{ width: `${progressPercent}%` }}
         />
       </div>
 
       {/* Top Navigation */}
-      <nav className="fixed top-1 left-0 right-0 z-50 bg-midnight-950/95 backdrop-blur-xl border-b border-slate-800/50 h-16">
-        <div className="flex items-center justify-between h-full px-4">
+      <nav className="fixed top-1 left-0 right-0 z-50 bg-[#030712]/90 backdrop-blur-xl border-b border-white/5 h-16">
+        <div className="flex items-center justify-between h-full px-4 lg:px-6">
           <div className="flex items-center gap-4">
             <button 
-              className="lg:hidden text-slate-400 hover:text-white"
+              className="lg:hidden text-gray-400 hover:text-white"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-saffron-500 to-saffron-600 rounded-lg flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-display font-bold text-lg hidden sm:block text-white">Vibe Coding</span>
-            </Link>
+            <Logo />
           </div>
           
           <div className="flex items-center gap-6">
-            {/* Progress indicator */}
             <div className="hidden sm:flex items-center gap-2 text-sm">
-              <span className="text-slate-400">{completedCount}/{totalLessons} lessons</span>
-              <span className="text-saffron-400 font-medium">{progressPercent}%</span>
+              <span className="text-gray-500">{completedCount}/{totalLessons}</span>
+              <span className="text-blue-400 font-medium">{progressPercent}%</span>
             </div>
             
             <Link 
               href="/"
-              className="flex items-center gap-2 text-slate-300 hover:text-white transition"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition"
             >
               <Home className="w-4 h-4" />
-              <span className="hidden sm:inline">Home</span>
+              <span className="hidden sm:inline text-sm">Home</span>
             </Link>
           </div>
         </div>
@@ -143,24 +163,24 @@ export default function CourseLayout({ children }) {
 
       {/* Sidebar */}
       <aside className={`
-        fixed top-[68px] left-0 bottom-0 w-72 bg-midnight-900/80 border-r border-slate-800/50 
+        fixed top-[68px] left-0 bottom-0 w-72 bg-[#0a1628]/80 backdrop-blur-xl border-r border-white/5 
         overflow-y-auto z-40 transition-transform duration-300
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         <nav className="p-4">
-          {/* Progress Summary */}
-          <div className="mb-6 p-4 bg-midnight-950/50 rounded-xl border border-slate-800">
+          {/* Progress Card */}
+          <div className="mb-6 p-4 bg-[#030712]/50 rounded-xl border border-white/5">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-slate-400">Your Progress</span>
-              <span className="text-sm font-semibold text-saffron-400">{progressPercent}%</span>
+              <span className="text-sm text-gray-400">Your Progress</span>
+              <span className="text-sm font-semibold text-blue-400">{progressPercent}%</span>
             </div>
-            <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+            <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-saffron-500 to-saffron-400 transition-all duration-500"
+                className="h-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-500"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
-            <div className="mt-2 text-xs text-slate-500">
+            <div className="mt-2 text-xs text-gray-600">
               {completedCount} of {totalLessons} lessons completed
             </div>
           </div>
@@ -169,18 +189,18 @@ export default function CourseLayout({ children }) {
             <div key={section.title} className="mb-4">
               <button
                 onClick={() => toggleSection(sectionIndex)}
-                className="flex items-center justify-between w-full text-left p-2 rounded-lg hover:bg-slate-800/50 transition group"
+                className="flex items-center justify-between w-full text-left p-3 rounded-lg hover:bg-white/5 transition group"
               >
                 <div className="flex items-center gap-2">
-                  <section.icon className="w-4 h-4 text-saffron-400" />
-                  <span className="text-sm font-medium text-slate-200 group-hover:text-white transition">
+                  <section.icon className="w-4 h-4 text-blue-400" />
+                  <span className="text-sm font-medium text-gray-300 group-hover:text-white transition">
                     {section.title}
                   </span>
                 </div>
                 {expandedSections.includes(sectionIndex) ? (
-                  <ChevronDown className="w-4 h-4 text-slate-500" />
+                  <ChevronDown className="w-4 h-4 text-gray-600" />
                 ) : (
-                  <ChevronRight className="w-4 h-4 text-slate-500" />
+                  <ChevronRight className="w-4 h-4 text-gray-600" />
                 )}
               </button>
               
@@ -195,17 +215,17 @@ export default function CourseLayout({ children }) {
                         href={item.href}
                         onClick={() => setSidebarOpen(false)}
                         className={`
-                          flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition
+                          flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm transition
                           ${isActive 
-                            ? 'bg-saffron-500/20 text-saffron-400 border-l-2 border-saffron-500' 
-                            : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                            ? 'bg-blue-500/10 text-blue-400 border-l-2 border-blue-500' 
+                            : 'text-gray-400 hover:text-white hover:bg-white/5'
                           }
                         `}
                       >
                         {isCompleted ? (
                           <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
                         ) : (
-                          <Circle className="w-4 h-4 text-slate-600 shrink-0" />
+                          <Circle className="w-4 h-4 text-gray-700 shrink-0" />
                         )}
                         <span>{item.title}</span>
                       </Link>
@@ -227,22 +247,22 @@ export default function CourseLayout({ children }) {
       )}
 
       {/* Main Content */}
-      <main className="lg:ml-72 pt-[68px] min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 py-12">
-          <article className="prose prose-invert max-w-none">
+      <main className="lg:ml-72 pt-[68px] min-h-screen relative z-10">
+        <div className="max-w-4xl mx-auto px-4 lg:px-8 py-12">
+          <article className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-400 prose-a:text-blue-400 prose-strong:text-white prose-code:text-blue-400 prose-code:bg-gray-800/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-[#0a1628] prose-pre:border prose-pre:border-white/5">
             {children}
           </article>
 
           {/* Prev/Next Navigation */}
-          <div className="mt-16 pt-8 border-t border-slate-800 flex items-center justify-between">
+          <div className="mt-16 pt-8 border-t border-white/5 flex items-center justify-between">
             {prevLesson ? (
               <Link 
                 href={prevLesson.href}
-                className="flex items-center gap-2 text-slate-300 hover:text-white transition group"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition group"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <div className="text-left">
-                  <div className="text-xs text-slate-500">Previous</div>
+                  <div className="text-xs text-gray-600">Previous</div>
                   <div className="text-sm">{prevLesson.title}</div>
                 </div>
               </Link>
@@ -251,10 +271,10 @@ export default function CourseLayout({ children }) {
             {nextLesson ? (
               <Link 
                 href={nextLesson.href}
-                className="flex items-center gap-2 text-slate-300 hover:text-white transition group"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition group"
               >
                 <div className="text-right">
-                  <div className="text-xs text-slate-500">Next</div>
+                  <div className="text-xs text-gray-600">Next</div>
                   <div className="text-sm">{nextLesson.title}</div>
                 </div>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -262,6 +282,27 @@ export default function CourseLayout({ children }) {
             ) : <div />}
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="border-t border-white/5 py-8 px-4 lg:px-8 mt-12">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <Logo />
+            <div className="flex items-center gap-4">
+              {socials.map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-gray-500 hover:text-white transition"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   )
