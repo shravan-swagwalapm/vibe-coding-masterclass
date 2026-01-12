@@ -45,7 +45,7 @@ export default function Prerequisites() {
           Here's a secret: <strong className="text-white">Product Managers are actually better positioned for vibe coding than many engineers.</strong> Why? Because vibe coding is fundamentally about:
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
           <div className="bg-white/5 border border-white/10 rounded-xl p-6">
             <h4 className="text-white font-semibold mb-3">🎯 Clear Requirements</h4>
             <p className="text-white/60 text-sm">You write PRDs for a living. You know how to specify what you want. That's 80% of vibe coding.</p>
@@ -64,50 +64,54 @@ export default function Prerequisites() {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-white mb-6">What You DON'T Need</h2>
-        
-        <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 mb-8">
-          <ul className="space-y-3 text-white/80">
-            <li className="flex items-start gap-3">
-              <span className="text-red-400 mt-1">✗</span>
-              <span>A Computer Science degree</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-red-400 mt-1">✗</span>
-              <span>Prior coding experience</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-red-400 mt-1">✗</span>
-              <span>Understanding of programming languages</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-red-400 mt-1">✗</span>
-              <span>Weeks or months of learning time</span>
-            </li>
-          </ul>
-        </div>
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-6">What You DON'T Need</h2>
+            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 h-full">
+              <ul className="space-y-3 text-white/80">
+                <li className="flex items-start gap-3">
+                  <span className="text-red-400 mt-1">✗</span>
+                  <span>A Computer Science degree</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-400 mt-1">✗</span>
+                  <span>Prior coding experience</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-400 mt-1">✗</span>
+                  <span>Understanding of programming languages</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-400 mt-1">✗</span>
+                  <span>Weeks or months of learning time</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-        <h2 className="text-2xl font-bold text-white mb-6">What You DO Need</h2>
-        
-        <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6 mb-8">
-          <ul className="space-y-3 text-white/80">
-            <li className="flex items-start gap-3">
-              <span className="text-blue-400 mt-1">✓</span>
-              <span><strong className="text-white">A computer</strong> — Mac, Windows, or Linux</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-400 mt-1">✓</span>
-              <span><strong className="text-white">Claude Pro or Max subscription</strong> — $20/month or $200/month</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-400 mt-1">✓</span>
-              <span><strong className="text-white">3 hours</strong> — to complete this course</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-blue-400 mt-1">✓</span>
-              <span><strong className="text-white">Curiosity</strong> — and willingness to experiment</span>
-            </li>
-          </ul>
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-6">What You DO Need</h2>
+            <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6 h-full">
+              <ul className="space-y-3 text-white/80">
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong className="text-white">A computer</strong> — Mac, Windows, or Linux</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong className="text-white">Claude Pro or Max subscription</strong> — $20/month or $200/month</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong className="text-white">3 hours</strong> — to complete this course</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-400 mt-1">✓</span>
+                  <span><strong className="text-white">Curiosity</strong> — and willingness to experiment</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 rounded-xl p-6">

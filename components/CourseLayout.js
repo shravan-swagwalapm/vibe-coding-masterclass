@@ -287,8 +287,8 @@ export default function CourseLayout({ children }) {
 
       {/* Main Content */}
       <main className="lg:ml-72 pt-[68px] min-h-screen relative z-10">
-        <div className="w-full px-6 sm:px-8 lg:px-10 py-12">
-          <article className="w-full max-w-5xl">
+        <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 py-12">
+          <article className="w-full max-w-none">
             {children}
           </article>
 
@@ -323,7 +323,7 @@ export default function CourseLayout({ children }) {
         </div>
 
         {/* Footer */}
-        <footer className="border-t border-white/5 py-8 px-6 sm:px-8 lg:px-10 mt-12">
+        <footer className="border-t border-white/5 py-8 px-6 sm:px-8 lg:px-12 xl:px-16 mt-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <Logo />
             <div className="flex items-center gap-4">
