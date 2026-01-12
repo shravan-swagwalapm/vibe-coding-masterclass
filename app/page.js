@@ -346,8 +346,8 @@ export default function Home() {
             <span className="text-white/90 text-sm font-medium">Free Course • No Coding Required</span>
           </div>
 
-          <p className="text-white/60 text-sm mb-10">
-            by <span className="text-orange-400 font-medium">Shravan Tickoo</span> aka <span className="text-blue-400 font-medium">Swag Wala PM</span>
+          <p className="text-white/70 text-lg mb-10">
+            by <span className="text-orange-400 font-semibold">Shravan Tickoo</span> aka <span className="text-blue-400 font-semibold">Swag Wala PM</span>
           </p>
 
           <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed font-light">
@@ -377,7 +377,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="inline-flex items-center gap-8 sm:gap-12 bg-white/10 backdrop-blur-sm rounded-2xl px-8 sm:px-12 py-6 sm:py-8 border border-white/15 mb-20">
+          <div className="inline-flex items-center gap-8 sm:gap-12 bg-white/10 backdrop-blur-sm rounded-2xl px-8 sm:px-12 py-6 sm:py-8 border border-white/15 mb-8">
             <div className="text-center">
               <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">{totalHours}+</div>
               <div className="text-sm sm:text-base text-white/60 mt-2">Hours Content</div>
