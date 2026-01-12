@@ -1,4 +1,5 @@
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata = {
   title: 'Vibe Coding Masterclass | Learn to Ship Apps Without Code',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   )
