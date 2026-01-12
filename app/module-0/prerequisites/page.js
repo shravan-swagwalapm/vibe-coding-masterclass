@@ -64,10 +64,10 @@ export default function Prerequisites() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-bold text-white mb-6">What You DON'T Need</h2>
-            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 h-full">
+            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6">
               <ul className="space-y-3 text-white/80">
                 <li className="flex items-start gap-3">
                   <span className="text-red-400 mt-1">✗</span>
@@ -91,7 +91,7 @@ export default function Prerequisites() {
 
           <div>
             <h2 className="text-2xl font-bold text-white mb-6">What You DO Need</h2>
-            <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6 h-full">
+            <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6">
               <ul className="space-y-3 text-white/80">
                 <li className="flex items-start gap-3">
                   <span className="text-blue-400 mt-1">✓</span>
@@ -114,7 +114,7 @@ export default function Prerequisites() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 rounded-xl p-6 mt-8">
+        <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 rounded-xl p-6 mt-12 clear-both">
           <h3 className="text-orange-400 font-semibold mb-3">💡 The Vibe Coding Promise</h3>
           <p className="text-white/80">
             By the end of this course, you will have deployed a real, working web application with a real URL that you can share with anyone. No tricks, no "it only works on my machine" — a genuine shipped product.
