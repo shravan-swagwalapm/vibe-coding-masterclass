@@ -1,249 +1,65 @@
-import { Rocket, Globe, CheckCircle2, ExternalLink, PartyPopper, BookOpen } from 'lucide-react'
-import Link from 'next/link'
+import CourseLayout from '@/components/CourseLayout'
 
-export const metadata = {
-  title: 'Deploying to Production | Vibe Coding Masterclass',
-  description: 'Get your app live on the internet with a real URL',
-}
-
-const CodeBlock = ({ children, title }) => (
-  <div className="bg-midnight-950 border border-slate-800 rounded-xl overflow-hidden my-4">
-    {title && (
-      <div className="bg-slate-800/50 px-4 py-2 text-sm text-slate-400 border-b border-slate-800">
-        {title}
-      </div>
-    )}
-    <pre className="p-4 overflow-x-auto">
-      <code className="text-sm text-slate-300 whitespace-pre-wrap">{children}</code>
-    </pre>
-  </div>
-)
-
-export default function DeploymentPage() {
+export default function Deployment() {
   return (
-    <div>
-      <div className="mb-8">
-        <div className="text-sm text-saffron-400 font-medium mb-2">Module 2 • Lesson 4</div>
-        <h1 className="font-display text-4xl font-bold text-white mb-4">Deploying to Production</h1>
-        <p className="text-xl text-slate-400">Time to ship. Let us get your app live on the internet.</p>
-      </div>
+    <CourseLayout
+      moduleNumber={2}
+      lessonNumber={7}
+      title="Deploying to Vercel"
+      duration="15 min"
+      prevLesson={{ href: "/module-2/testing", title: "Testing Your App" }}
+      nextLesson={{ href: "/module-2/custom-domains", title: "Custom Domains & DNS" }}
+    >
+      <div className="prose prose-invert max-w-none">
+        <h2 className="text-2xl font-bold text-white mb-6">Ship It to the World</h2>
+        
+        <p className="text-white/70 text-lg leading-relaxed mb-6">
+          Vercel makes deployment incredibly simple. Your app will be live on the internet with a real URL in under 5 minutes.
+        </p>
 
-      <div className="bg-gradient-to-r from-green-500/10 to-green-600/5 border border-green-500/20 rounded-xl p-6 mb-8">
-        <div className="flex items-start gap-3">
-          <PartyPopper className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
-          <div>
-            <div className="font-semibold text-white mb-1">You Are About to Ship!</div>
-            <div className="text-slate-300 text-sm">
-              In 15 minutes, your app will have a real URL that anyone can visit. <a href="https://vercel.com/docs/frameworks/full-stack/nextjs" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:underline">Vercel is free</a> for personal projects.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Option 1: Vercel (Recommended)</h2>
-
-      <p className="text-slate-300 mb-4">
-        <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Vercel</a> is the company behind Next.js. It is free, fast, and works perfectly with Next.js/React projects.
-      </p>
-
-      <div className="space-y-4 mb-8">
-        <div className="flex items-start gap-4 bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
-          <span className="bg-saffron-500/20 text-saffron-400 w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">1</span>
-          <div>
-            <h3 className="font-semibold text-white mb-1">Push to GitHub</h3>
-            <p className="text-slate-400 text-sm mb-2">Ask Claude to help you set up Git:</p>
-            <CodeBlock>{`Initialize a git repo and push to GitHub`}</CodeBlock>
-            <p className="text-slate-400 text-sm mt-2">Or manually:</p>
-            <CodeBlock>{`git init
-git add .
-git commit -m "Initial commit"
-gh repo create my-app --public --source=. --push`}</CodeBlock>
-          </div>
+        <h2 className="text-2xl font-bold text-white mb-6">Step 1: Create GitHub Repository</h2>
+        
+        <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-6">
+          <ol className="space-y-3 text-white/70 list-decimal list-inside">
+            <li>Go to <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">github.com/new</a></li>
+            <li>Name your repository (e.g., "my-awesome-app")</li>
+            <li>Keep it public (or private if you prefer)</li>
+            <li>Click "Create repository"</li>
+          </ol>
         </div>
 
-        <div className="flex items-start gap-4 bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
-          <span className="bg-saffron-500/20 text-saffron-400 w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">2</span>
-          <div>
-            <h3 className="font-semibold text-white mb-1">Connect to Vercel</h3>
-            <div className="text-slate-400 text-sm space-y-2">
-              <p>1. Go to <a href="https://vercel.com/new" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">vercel.com/new</a></p>
-              <p>2. Sign up with GitHub (if you have not already)</p>
-              <p>3. Click &quot;Import&quot; next to your repo</p>
-              <p>4. Click &quot;Deploy&quot;</p>
-            </div>
+        <h2 className="text-2xl font-bold text-white mb-6">Step 2: Push Your Code</h2>
+        
+        <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-6">
+          <p className="text-white/70 mb-4">In your terminal, run these commands:</p>
+          <div className="bg-black/50 rounded-lg p-4 font-mono text-sm space-y-1">
+            <div><span className="text-white">git init</span></div>
+            <div><span className="text-white">git add .</span></div>
+            <div><span className="text-white">git commit -m "Initial commit"</span></div>
+            <div><span className="text-white">git remote add origin [your-repo-url]</span></div>
+            <div><span className="text-white">git push -u origin main</span></div>
           </div>
         </div>
 
-        <div className="flex items-start gap-4 bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
-          <span className="bg-saffron-500/20 text-saffron-400 w-8 h-8 rounded-full flex items-center justify-center font-bold shrink-0">3</span>
-          <div>
-            <h3 className="font-semibold text-white mb-1">Get Your URL</h3>
-            <p className="text-slate-400 text-sm">
-              Vercel gives you a URL like <code className="text-saffron-400">your-app.vercel.app</code> — live in about 60 seconds!
-            </p>
-          </div>
+        <h2 className="text-2xl font-bold text-white mb-6">Step 3: Deploy on Vercel</h2>
+        
+        <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-8">
+          <ol className="space-y-3 text-white/70 list-decimal list-inside">
+            <li>Go to <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">vercel.com</a> and sign up with GitHub</li>
+            <li>Click "Add New Project"</li>
+            <li>Import your GitHub repository</li>
+            <li>Click "Deploy" — Vercel auto-detects Next.js settings</li>
+            <li>Wait ~60 seconds for deployment to complete</li>
+          </ol>
+        </div>
+
+        <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 border border-green-500/30 rounded-xl p-6">
+          <h3 className="text-green-400 font-semibold mb-3">🎉 You're Live!</h3>
+          <p className="text-white/70">
+            Vercel gives you a URL like <code className="bg-white/10 px-2 py-1 rounded">your-app.vercel.app</code>. Share it with anyone! Future pushes to GitHub auto-deploy.
+          </p>
         </div>
       </div>
-
-      <div className="bg-slate-800/30 border border-slate-800 rounded-xl p-5 mb-8">
-        <h3 className="font-semibold text-white mb-2">Auto-Deploy on Push</h3>
-        <p className="text-slate-400 text-sm">
-          Once connected, every <code className="text-saffron-400">git push</code> automatically deploys your latest code. No manual steps needed.
-        </p>
-      </div>
-
-      <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Option 2: Netlify</h2>
-
-      <p className="text-slate-300 mb-4">
-        Another great free option, especially for static HTML sites.
-      </p>
-
-      <div className="bg-midnight-900/50 border border-slate-800 rounded-xl p-5 mb-8">
-        <p className="text-slate-400 text-sm">
-          Drag and drop your project folder onto <a href="https://app.netlify.com/drop" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">app.netlify.com/drop</a> — that is it!
-        </p>
-      </div>
-
-      <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Option 3: GitHub Pages</h2>
-
-      <p className="text-slate-300 mb-4">
-        Perfect for simple HTML/CSS/JS projects. Free hosting at <code className="text-saffron-400">username.github.io/repo-name</code>.
-      </p>
-
-      <CodeBlock title="Claude Code">
-{`Help me deploy this to GitHub Pages.
-Set up the repo and give me step-by-step instructions.`}
-      </CodeBlock>
-
-      <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">Custom Domain (Optional)</h2>
-
-      <p className="text-slate-300 mb-4">
-        Want <code className="text-saffron-400">yourapp.com</code> instead of <code className="text-saffron-400">yourapp.vercel.app</code>?
-      </p>
-
-      <ul className="list-disc list-inside text-slate-400 space-y-2 mb-6 ml-4">
-        <li>Buy a domain from <a href="https://www.namecheap.com" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Namecheap</a>, <a href="https://www.cloudflare.com/products/registrar/" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Cloudflare</a>, or <a href="https://domains.google" target="_blank" rel="noopener noreferrer" className="text-saffron-400 hover:underline">Google Domains</a> (~$10/year)</li>
-        <li>Add it to your Vercel/Netlify project settings</li>
-        <li>Update DNS records (the platform will guide you)</li>
-      </ul>
-
-      <div className="bg-gradient-to-r from-saffron-500/10 to-saffron-600/5 border border-saffron-500/20 rounded-xl p-6 my-8">
-        <div className="font-semibold text-white mb-2">Congratulations!</div>
-        <p className="text-slate-300 text-sm mb-4">
-          You have completed the Vibe Coding Masterclass. You now know how to:
-        </p>
-        <ul className="space-y-2 text-slate-300 text-sm">
-          <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-            Install and use Claude Code
-          </li>
-          <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-            Write effective prompts for code generation
-          </li>
-          <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-            Navigate and manipulate project files
-          </li>
-          <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-            Plan and build a complete application
-          </li>
-          <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-            Debug issues without knowing code
-          </li>
-          <li className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-green-400" />
-            Deploy your app to the internet
-          </li>
-        </ul>
-      </div>
-
-      <h2 className="font-display text-2xl font-bold text-white mt-12 mb-6">What is Next?</h2>
-
-      <div className="grid sm:grid-cols-2 gap-4 mb-8">
-        <div className="bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
-          <h3 className="font-semibold text-white mb-2">Build More</h3>
-          <p className="text-slate-400 text-sm">The best way to learn is by shipping. Build something every week.</p>
-        </div>
-        <div className="bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
-          <h3 className="font-semibold text-white mb-2">Share Your Work</h3>
-          <p className="text-slate-400 text-sm">Post your projects on Twitter/LinkedIn. Building in public accelerates learning.</p>
-        </div>
-        <div className="bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
-          <h3 className="font-semibold text-white mb-2">Join the Community</h3>
-          <p className="text-slate-400 text-sm">Connect with other vibe coders. Share tips, get feedback, collaborate.</p>
-        </div>
-        <div className="bg-midnight-900/50 border border-slate-800 rounded-xl p-5">
-          <h3 className="font-semibold text-white mb-2">Go Deeper</h3>
-          <p className="text-slate-400 text-sm">Learn about databases (Supabase), authentication, and more advanced patterns.</p>
-        </div>
-      </div>
-
-      <div className="bg-gradient-to-br from-midnight-900 to-midnight-800 border border-slate-800 rounded-3xl p-8 text-center">
-        <div className="text-4xl mb-4">🚀</div>
-        <h2 className="font-display text-2xl font-bold text-white mb-4">You are a Vibe Coder Now</h2>
-        <p className="text-slate-400 mb-6 max-w-md mx-auto">
-          Go build something. The only limit is your imagination (and maybe your Claude subscription quota).
-        </p>
-        <Link 
-          href="/"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-saffron-500 to-saffron-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-saffron-600 hover:to-saffron-700 transition"
-        >
-          Back to Home
-        </Link>
-      </div>
-
-      {/* Further Reading Section */}
-      <div className="border-t border-slate-800 pt-8 mt-12">
-        <h2 className="font-display text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <BookOpen className="w-5 h-5 text-saffron-400" />
-          Further Reading
-        </h2>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <a 
-            href="https://nextjs.org/learn" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
-          >
-            <div className="text-sm text-saffron-400 mb-1">Official Course</div>
-            <div className="text-white font-medium group-hover:text-saffron-400 transition">Learn Next.js</div>
-            <div className="text-slate-500 text-sm mt-1">nextjs.org</div>
-          </a>
-          <a 
-            href="https://vercel.com/docs/frameworks/full-stack/nextjs" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
-          >
-            <div className="text-sm text-saffron-400 mb-1">Vercel Docs</div>
-            <div className="text-white font-medium group-hover:text-saffron-400 transition">Next.js on Vercel</div>
-            <div className="text-slate-500 text-sm mt-1">vercel.com</div>
-          </a>
-          <a 
-            href="https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
-          >
-            <div className="text-sm text-saffron-400 mb-1">Advanced Course</div>
-            <div className="text-white font-medium group-hover:text-saffron-400 transition">DeepLearning.AI + Anthropic</div>
-            <div className="text-slate-500 text-sm mt-1">Free official course</div>
-          </a>
-          <a 
-            href="https://creatoreconomy.so/p/claude-code-beginners-tutorial-build-a-movie-app-in-15-minutes" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="bg-midnight-900/50 border border-slate-800 rounded-xl p-4 hover:border-saffron-500/30 transition group"
-          >
-            <div className="text-sm text-saffron-400 mb-1">Project Tutorial</div>
-            <div className="text-white font-medium group-hover:text-saffron-400 transition">Build a Movie App</div>
-            <div className="text-slate-500 text-sm mt-1">15-minute hands-on project</div>
-          </a>
-        </div>
-      </div>
-    </div>
+    </CourseLayout>
   )
 }

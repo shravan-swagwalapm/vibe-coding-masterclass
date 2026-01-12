@@ -1,6 +1,6 @@
 import CourseLayout from '@/components/CourseLayout'
 
-export default function Prerequisites() {
+export default function WhoThisIsFor() {
   return (
     <CourseLayout
       moduleNumber={0}

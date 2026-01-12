@@ -1,6 +1,6 @@
 import CourseLayout from '@/components/CourseLayout'
 
-export default function WhatIsVibeCoding() {
+export default function VibeCodingManifesto() {
   return (
     <CourseLayout
       moduleNumber={1}
@@ -33,7 +33,7 @@ export default function WhatIsVibeCoding() {
               Describe, Don't Code
             </h3>
             <p className="text-white/60">
-              Your job is to articulate <em>what</em> you want, not <em>how</em> to build it. The clearer your description, the better the output.
+              Your job is to articulate <em>what</em> you want, not <em>how</em> to build it. The clearer your description, the better the output. Think of yourself as a product manager for every feature.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export default function WhatIsVibeCoding() {
               Iterate Relentlessly
             </h3>
             <p className="text-white/60">
-              Your first prompt won't be perfect. Vibe coding is a conversation — refine, adjust, and improve through dialogue.
+              Your first prompt won't be perfect. Neither will your second. Vibe coding is a conversation — refine, adjust, and improve through dialogue. Every iteration gets you closer.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function WhatIsVibeCoding() {
               Trust But Verify
             </h3>
             <p className="text-white/60">
-              Claude is incredibly capable, but not infallible. Always test what's built. You're the QA team.
+              Claude is incredibly capable, but not infallible. Always test what's built. Click every button, check every edge case. You're the QA team.
             </p>
           </div>
 
@@ -63,7 +63,7 @@ export default function WhatIsVibeCoding() {
               Start Simple, Add Complexity
             </h3>
             <p className="text-white/60">
-              Don't try to build everything at once. Get the core working first. Add features one at a time.
+              Don't try to build everything at once. Get the core working first. Add features one at a time. This is MVP thinking applied to every coding session.
             </p>
           </div>
 
@@ -73,15 +73,56 @@ export default function WhatIsVibeCoding() {
               Ship It
             </h3>
             <p className="text-white/60">
-              A deployed imperfect app beats a perfect app that never ships. Get it live, get feedback, improve.
+              A deployed imperfect app beats a perfect app that never ships. Get it live, get feedback, improve. The goal is always a working product in users' hands.
             </p>
           </div>
         </div>
 
+        <h2 className="text-2xl font-bold text-white mb-6">Old World vs. Vibe Coding</h2>
+
+        <div className="overflow-x-auto mb-8">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-b border-white/10">
+                <th className="py-4 text-white/60 font-medium">Traditional Coding</th>
+                <th className="py-4 text-white/60 font-medium">Vibe Coding</th>
+              </tr>
+            </thead>
+            <tbody className="text-white/70">
+              <tr className="border-b border-white/5">
+                <td className="py-4">Learn syntax for months</td>
+                <td className="py-4 text-green-400">Start building immediately</td>
+              </tr>
+              <tr className="border-b border-white/5">
+                <td className="py-4">Debug by reading error messages</td>
+                <td className="py-4 text-green-400">Ask Claude to explain and fix</td>
+              </tr>
+              <tr className="border-b border-white/5">
+                <td className="py-4">Stack Overflow copy-paste</td>
+                <td className="py-4 text-green-400">Contextual, custom solutions</td>
+              </tr>
+              <tr className="border-b border-white/5">
+                <td className="py-4">Fear of breaking things</td>
+                <td className="py-4 text-green-400">Ask Claude to fix what broke</td>
+              </tr>
+              <tr className="border-b border-white/5">
+                <td className="py-4">Imposter syndrome</td>
+                <td className="py-4 text-green-400">Confidence through shipping</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="text-2xl font-bold text-white mb-6">The Origin of "Vibe Coding"</h2>
+
+        <p className="text-white/70 text-lg leading-relaxed mb-6">
+          The term was coined by <a href="https://twitter.com/karpathy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Andrej Karpathy</a>, former Director of AI at Tesla, to describe a new way of programming where you "go with the vibes" — describing what you want in natural language and letting AI handle the implementation details.
+        </p>
+
         <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6">
           <h3 className="text-blue-400 font-semibold mb-3">💡 Key Insight</h3>
           <p className="text-white/70">
-            Vibe coding doesn't replace understanding — it <em>accelerates</em> it. As you build, you'll naturally learn how things work.
+            Vibe coding doesn't replace understanding — it <em>accelerates</em> it. As you build, you'll naturally learn how things work. You're not avoiding knowledge; you're acquiring it through practice instead of theory.
           </p>
         </div>
       </div>
