@@ -287,8 +287,8 @@ export default function CourseLayout({ children }) {
 
       {/* Main Content */}
       <main className="lg:ml-72 pt-[68px] min-h-screen relative z-10">
-        <div className="max-w-4xl px-6 lg:px-12 py-12">
-          <article className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-400 prose-a:text-blue-400 prose-strong:text-white prose-code:text-blue-400 prose-code:bg-gray-800/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-[#0a1628] prose-pre:border prose-pre:border-white/5">
+        <div className="px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 py-12">
+          <article className="w-full">
             {children}
           </article>
 
@@ -323,8 +323,8 @@ export default function CourseLayout({ children }) {
         </div>
 
         {/* Footer */}
-        <footer className="border-t border-white/5 py-8 px-6 lg:px-12 mt-12">
-          <div className="max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <footer className="border-t border-white/5 py-8 px-6 sm:px-8 lg:px-12 xl:px-16 2xl:px-24 mt-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <Logo />
             <div className="flex items-center gap-4">
               {socials.map((social, i) => (
